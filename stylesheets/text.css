@@ -1,0 +1,23 @@
+/* Rasputin Regular */
+@font-face {
+  font-family: "Rasputin";
+  src: url("/fonts/RasputinRegular.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Rasputin Bold */
+@font-face {
+  font-family: "Rasputin";
+  src: url("/fonts/RasputinSemibold.woff");
+  font-weight: bold;
+  font-style: normal;
+}
+/* Rasputin Italic */
+@font-face {
+  font-family: "Rasputin";
+  src: url("/fonts/RasputinLight.woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+/*# sourceMappingURL=text.css.map */

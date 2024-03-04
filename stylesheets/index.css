@@ -1,0 +1,305 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Rasputin Regular */
+@font-face {
+  font-family: "Rasputin";
+  src: url("/fonts/RasputinRegular.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Rasputin Bold */
+@font-face {
+  font-family: "Rasputin";
+  src: url("/fonts/RasputinBold.woff");
+  font-weight: bold;
+  font-style: normal;
+}
+/* Rasputin Light (Italic?) */
+@font-face {
+  font-family: "Rasputin";
+  src: url("/fonts/RasputinLight.woff");
+  font-weight: normal;
+  font-style: auto;
+}
+/* Jemina */
+@font-face {
+  font-family: "Jemina";
+  src: url("/fonts/Jemina_Regular.woff2");
+  font-weight: auto;
+  font-style: auto;
+}
+/* Fleur de Leah */
+@font-face {
+  font-family: "Fleur de Leah";
+  src: url("/fonts/FleurDeLeah-Regular.ttf");
+}
+h1 {
+  font-family: Jemina, serif;
+  font-size: 120px;
+  line-height: 8rem;
+}
+
+h2 {
+  font-family: Jemina, serif;
+  font-size: 68px;
+}
+
+h3 {
+  font-family: Rasputin, serif;
+  font-size: 50px;
+}
+
+h4 {
+  font-family: Rasputin, serif;
+  font-size: 38px;
+}
+
+h5 {
+  font-family: Rasputin, serif;
+  font-size: 28px;
+}
+
+h6 {
+  font-family: Rasputin, serif;
+  font-size: 21px;
+  line-height: 2rem;
+}
+
+p {
+  font-family: "Roboto Condensed Light", sans-serif;
+  font-size: 16px;
+  line-height: 1.3rem;
+  margin: 10px;
+}
+
+body {
+  width: 70%;
+  margin: auto;
+  background-color: #192028;
+  color: #d5dce6;
+}
+
+ul {
+  font-size: 16px;
+  font-family: "Roboto Light", Arial, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  background-color: #465B79;
+  color: #0d1116;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 0 8px 0 8px;
+}
+
+.forums-background {
+  background-color: #1F2835;
+  width: 100%;
+}
+
+.banner {
+  background: no-repeat 90% 80%/500px url("/spring.png"), radial-gradient(circle 25rem at 70% 90%, #F25C68, transparent);
+  height: 500px;
+  font-family: Jemina, serif;
+  color: #F25C68;
+  position: relative;
+  text-align: center;
+  text-shadow: black 2px 2px 5px;
+}
+
+.quick-links {
+  text-align: right;
+  font-size: 20px;
+  font-family: Rasputin, serif;
+  line-height: 1.8rem;
+  color: #81A8DF;
+}
+
+.quick-links-layout {
+  border-top: #94a7c1 solid 2px;
+  border-bottom: #94a7c1 solid 2px;
+  width: 250px;
+  padding: 10px 25px;
+}
+
+#guidebook {
+  color: #F25C68;
+}
+
+#banner-title {
+  position: absolute;
+  top: 9%;
+  left: 150px;
+}
+
+#quick-links-position {
+  position: absolute;
+  top: 36%;
+  left: 250px;
+}
+
+#tagline {
+  position: absolute;
+  bottom: 9%;
+  left: 90px;
+  font-family: Rasputin, serif;
+  font-size: 1.7rem;
+  font-style: italic;
+}
+
+.forum-nav {
+  background-color: #232E3D;
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+.nav-left {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-right {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.two-column {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.two-rows {
+  flex-flow: column;
+}
+
+.header-info {
+  width: 50%;
+  margin: 10px;
+  color: #0d1116;
+}
+
+.header-background {
+  background-color: #465B79;
+  margin-bottom: 10px;
+  border-radius: 0 0 8px 8px;
+}
+
+.welcome {
+  padding: 8px 15px 8px 15px;
+  text-align: justify;
+  border-right: #232E3D solid 2px;
+}
+
+#welcome-back {
+  font-family: Rasputin, serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.latest-news {
+  padding: 8px 15px 8px 15px;
+}
+.latest-news li {
+  padding-bottom: 8px;
+}
+
+#older-news {
+  color: #232E3D;
+}
+
+.news-date {
+  font-family: Rasputin, serif;
+}
+
+#guidebook {
+  font-weight: bold;
+}
+
+.forum-nav {
+  margin-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  font-family: Rasputin, serif;
+  font-size: 24px;
+}
+
+.forum-title {
+  background-color: #455a77;
+  color: black;
+  text-shadow: black 2px 2px 5px;
+  height: 70px;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sub-forum-title {
+  background-color: #232E3D;
+  margin: 5px;
+  padding: 24px;
+}
+.sub-forum-title h4 {
+  color: #81A8DF;
+}
+.sub-forum-title h5 {
+  color: #6D8EBD;
+}
+
+.handbook-forum {
+  width: 60%;
+  text-shadow: #455a77 1px 1px 5px;
+}
+
+.news-archives {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.row-items {
+  flex-grow: 1;
+}
+
+.subregions {
+  display: flex;
+  justify-content: center;
+}
+
+.subregion-buttons {
+  border: none;
+}
+
+.sub-board-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.sub-board-names {
+  color: #81A8DF;
+  font-family: Rasputin, serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: solid 1px;
+  display: inline;
+  padding: 8px;
+  margin: 4px;
+}
+
+/*# sourceMappingURL=index.css.map */
