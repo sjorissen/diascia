@@ -1,0 +1,128 @@
+@use "colors";
+
+/*****************************************************************
+ * Member list page
+ * Individual character layouts with hover images & group color
+ *****************************************************************/
+
+.memberlist-filter {
+  text-align: center;
+  margin: 16px;
+
+  input {
+    margin: 8px;
+  }
+}
+
+.memberlist-layout {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 12px;
+}
+
+@mixin member-list($group, $group-color) {
+  .memberlist-display-#{$group} {
+    display: flex;
+    flex-direction: column;
+    width: 265px;
+    margin: 8px;
+
+    &:hover .hover-gradient {
+      background: radial-gradient(transparent 45%, $group-color);
+    }
+
+    &:hover .ml-hover {
+      display: block;
+      font-family: Rasputin, serif;
+      background-color: $group-color;
+      padding: 8px;
+      width: 170px;
+      position: relative;
+      right: 65px;
+      top: 30%;
+
+      .ml-flavor-text {
+        border-left: solid 2px;
+        padding: 0 8px;
+        max-height: 110px;
+        overflow: hidden;
+        font-size: 14px;
+      }
+
+      .ml-hover-info {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 8px;
+        gap: 4px;
+
+        li {
+          border: solid 2px;
+          padding: 4px;
+          font-family: Rasputin, serif;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .ml-hover {
+      display: none;
+    }
+
+    .char-name {
+      background-color: $group-color;
+      padding: 8px;
+      font-size: 24px;
+      text-align: center;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .hover-gradient {
+      height: 424px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .hover-image {
+      height: 424px;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      .memberlist-nav-btns {
+        background-color: $group-color;
+        padding: 8px;
+        margin: 8px;
+        text-align: center;
+        font-size: 24px;
+      }
+    }
+
+    .played-by {
+      background-color: $group-color;
+      padding: 8px 16px;
+      width: fit-content;
+      border-top-left-radius: 8px;
+
+      .player-name {
+        font-family: Rasputin, serif;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+  }
+
+  a {
+    color: var(--text-color);
+  }
+}
+
+@include member-list(strategos, var(--strat));
+@include member-list(thiarchos, var(--thia));
+@include member-list(krisigos, var(--kris));
+@include member-list(mnemntia, var(--mnem));
+@include member-list(sophist, var(--soph));
+@include member-list(validating, var(--guest));
+@include member-list(Admin, var(--admin));
+@include member-list(Mod, var(--mod));
+@include member-list(Nereid, var(--guest));

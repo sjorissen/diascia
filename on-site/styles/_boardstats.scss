@@ -1,0 +1,230 @@
+@use "colors";
+@use "forums";
+
+// Boards stats section at bottom of homepage
+#board-stats-layout {
+  display: flex;
+  margin: 4px;
+
+  #users-online {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+
+    #stats-links-layout {
+      display: flex;
+      justify-content: space-evenly;
+
+      .stats-links {
+        text-transform: lowercase;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        font-size: 24px;
+
+        li {
+          @extend .section-bg;
+          margin: 4px;
+          padding: 5px 10px;
+          //color: $light-blue;
+        }
+      }
+    }
+
+    #online-today, #currently-online {
+      flex-grow: 1;
+      margin: 4px;
+    }
+
+    .strategos {
+      color: var(--strat);
+    }
+
+    .thiarchos {
+      color: var(--thia);
+    }
+
+    .krisigos {
+      color: var(--kris);
+    }
+
+    .mnemntia {
+      color: var(--mnem);
+    }
+
+    .sophist {
+      color: var(--soph);
+    }
+
+    .validating, .inactive {
+      color: var(--guest);
+    }
+
+    .Admin {
+      color: var(--admin)
+    }
+
+    .Mod {
+      color: var(--mod);
+    }
+  }
+
+  // Newest member's hover image, name, and links
+  #new-member {
+    background-size: cover;
+    width: 317px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    #buttons-group {
+      display: flex;
+      flex-direction: column;
+
+      .new-member-buttons {
+        background-color: var(--palette4);
+        padding: 7px;
+        margin: 5px;
+        font-size: 25px;
+        text-align: center;
+        width: 30px;
+        color: var(--text-color);
+      }
+    }
+
+    #new-member-text {
+      font-family: Rasputin, serif;
+      background-color: var(--palette4);
+      font-size: 25px;
+      padding: 8px 16px;
+      width: 280px;
+
+      a {
+        color: var(--palette3);
+      }
+    }
+  }
+
+  // Latest replies
+  #active-topics {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 25%;
+    height: 500px;
+    overflow: auto;
+    scrollbar-color: var(--palette3) transparent;
+  }
+
+  #active-topics-title {
+    font-family: Rasputin, serif;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 8px;
+    text-align: center;
+    color: var(--nav-text);
+  }
+
+  .topics-list {
+    margin: 4px;
+    padding: 8px;
+
+    .topic-title {
+      font-family: Rasputin, serif;
+      font-size: 24px;
+    }
+  }
+}
+
+#recent-topics {
+  display: none;
+}
+
+// Character group counter
+@mixin roster($color) {
+  font-family: Rasputin, serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 24px;
+  background-color: $color;
+  padding: 8px;
+  margin: 3px;
+  flex-grow: 1;
+  width: 20%;
+}
+
+#bottom-roster, #bottom-roster-mobile {
+  display: flex;
+  justify-content: space-evenly;
+
+  .strat {
+    @include roster(var(--strat));
+  }
+
+  .thia {
+    @include roster(var(--thia));
+  }
+
+  .kris {
+    @include roster(var(--kris));
+  }
+
+  .mnem {
+    @include roster(var(--mnem));
+  }
+
+  .soph {
+    @include roster(var(--soph));
+  }
+}
+
+#bottom-roster-mobile {
+  display: none;
+  order: 5;
+}
+
+#board-stats-mobile {
+  background-color: var(--palette3);
+  display: none;
+  height: 150px;
+  justify-content: flex-end;
+  order: 4;
+
+  #member-image-mobile {
+    img {
+      width: 150px;
+      margin-right: 32px;
+    }
+  }
+
+  #welcome-member-mobile {
+    align-self: center;
+    flex-grow: 1;
+    font-family: Rasputin, serif;
+    font-size: 24px;
+  }
+
+  #new-mem-links-mobile {
+    align-self: center;
+    flex-grow: 1;
+    font-size: 24px;
+  }
+
+  #stats-links-mobile {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .slm-buttons {
+      background: var(--palette2);
+      width: 35px;
+      font-size: 25px;
+      text-align: center;
+      padding: 20px;
+    }
+  }
+}

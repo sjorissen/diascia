@@ -1,0 +1,75 @@
+/****************
+ * UCP styling
+ ****************/
+
+#ucpmenu {
+  display: block;
+  margin: 16px 0;
+  padding: 24px 0 24px 24px;
+  background-color: var(--palette3);
+  border-radius: 0 8px 8px 0;
+
+  a {
+    color: var(--palette5);
+  }
+
+  .row4 {
+    font-family: Rasputin, serif;
+    text-transform: uppercase;
+    margin: 16px 0;
+  }
+
+  .maintitle {
+    font-family: Rasputin, serif;
+    font-weight: bold;
+    font-size: 24px;
+    margin-left: 0;
+  }
+
+  .pformstrip {
+    font-family: Rasputin, serif;
+    font-size: 20px;
+  }
+}
+
+#ucpcontent {
+  padding: 40px;
+
+  a {
+    color: var(--palette5);
+  }
+
+  .maintitle {
+    margin: 0;
+  }
+
+  .pformstrip {
+    font-family: Rasputin, serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 32px 16px 0;
+  }
+
+  .dlight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--palette2);
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .alert-text {
+    flex-grow: 1;
+  }
+
+  .row2 {
+    padding: 4px 0;
+  }
+}
+
+.store-shop > table {
+  width: 100%;
+  overflow: auto;
+}

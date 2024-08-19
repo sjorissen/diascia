@@ -1,0 +1,118 @@
+@use "colors";
+
+/* Hide jcink's pagination setup */
+.pagination {
+  display: none;
+}
+
+/* Ribbon above & below topic list that displays number of pages & New Topic/Poll buttons */
+.topic-btn-background {
+  background-color: var(--palette3);
+  padding: 4px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  #topic-pages-top, #topic-pages-bottom, .topic-pages {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .pagination_page {
+    font-family: Rasputin, serif;
+    background-color: var(--palette2);
+    border: var(--palette2) 2px solid;
+    color: var(--palette4);
+    width: 16px;
+    padding: 4px;
+    text-align: center;
+  }
+
+  .current-page {
+    background-color: var(--palette3);
+    border: var(--palette2) 2px solid;
+    color: var(--palette2);
+  }
+
+  .topic-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .button-large {
+    font-family: Rasputin, serif;
+    //background-color: $dark-blue;
+    //border: $dark-blue 2px solid;
+    //color: $light-blue;
+    margin: 4px;
+    padding: 8px;
+  }
+}
+
+.topic-header {
+  margin: 16px;
+}
+
+.topic-layout {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 16px;
+  gap: 8px;
+}
+
+div[id*="topic-"]:not(#topic-options) {
+  background-color: var(--palette2);
+  width: calc(50% - 36px);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+
+  img {
+    width: 100px;
+  }
+}
+
+.topic-title-pages {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .topic-row-title {
+    font-size: 24px;
+  }
+}
+
+.last-poster-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  img {
+    box-shadow: 4px 4px var(--secondary);
+  }
+}
+
+.first-last-posters {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .topic-first-last-posts {
+    font-family: Rasputin, serif;
+  }
+
+  a {
+    font-family: Rasputin, serif;
+    color: var(--palette4);
+  }
+}
+
+/* Hide open/hot topic jcink stuff */
+.wrapmini {
+  display: none;
+}

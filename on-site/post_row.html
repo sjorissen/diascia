@@ -1,0 +1,75 @@
+<a name="entry<!-- |pid| -->">
+    <div id="post-<!-- |pid| -->"><!-- |mini_profile| --></div>
+
+    <div class="post-date-buttons-row date-buttons-<!-- |g_id| -->">
+        <div class="post-date">
+            <!-- |mod_checkbox| -->
+            <a href="<!-- |permalink| -->">
+                <i class="fa-light fa-link"></i> <!-- |post_date| -->
+            </a>
+        </div>
+        <div class="post-buttons">
+            <!-- |report_link| --><!-- |delete_button| --><!-- |edit_button| --><!-- |quote_button| -->
+        </div>
+    </div>
+
+    <div class="post-content-container post-content-<!-- |g_id| -->">
+        <div class="hover-img-player-info">
+            <img src="<!-- |field_23| -->"
+                 alt="hover avatar"
+                 onerror="this.onerror = null; this.src = 'https://files.jcink.net/uploads2/astonish/avatars/diascia_default_hover.png'"/>
+            <div class="ooc-info">
+                <span>Played by <b><!-- |field_18| --></b></span>
+                <ul>
+                    <li><b>Pronouns:</b> <!-- |field_19| --></li>
+                    <li><b>Timezone:</b> <!-- |field_20| --></li>
+                    <li><b>Contact:</b> <!-- |field_21| --></li>
+                    <li><b>Mature:</b> <!-- |field_22| --></li>
+                </ul>
+                <div class="mp-triggers"><b>Please Tag:</b> <!-- |field_24| --></div>
+            </div>
+        </div>
+        <div class="post-content"><!-- |post| --></div>
+    </div>
+</a>
+
+<script>
+    proficiencies = ["<!-- |field_27| -->", " <!-- |field_28| -->", " <!-- |field_29| -->", " <!-- |field_30| -->"];
+    for (let i = 3; i >= 0; i--) {
+        if (proficiencies[i] === " None") {
+            proficiencies.pop();
+        }
+    }
+    document.querySelector("#post-<!-- |pid| --> .proficiencies").innerHTML += proficiencies.toString();
+
+    if ("<!-- |field_7| -->" === "No") {
+        bloodType = "<!-- |field_6| -->";
+    }
+    else {
+        bloodType = "<!-- |field_7| --> <!-- |field_6| -->";
+    }
+    document.querySelector("#post-<!-- |pid| --> .blood-type").innerHTML += bloodType;
+
+    document.querySelector("#post-<!-- |pid| --> .mp-toggle-button").addEventListener("click", function() {
+        let mpInfo = document.querySelector("#post-<!-- |pid| --> .mp-char-info").classList;
+        let mpName = document.querySelector("#post-<!-- |pid| --> .mp-name").classList;
+        let toggleButton = document.querySelector("#post-<!-- |pid| --> .mp-toggle-button i").classList;
+
+        mpInfo.toggle("open");
+        mpName.toggle("hide");
+
+        if (toggleButton.contains("fa-chevrons-left")) {
+            toggleButton.add("fa-chevrons-right");
+            toggleButton.remove("fa-chevrons-left");
+        }
+        else {
+            toggleButton.add("fa-chevrons-left");
+            toggleButton.remove("fa-chevrons-right");
+        }
+    })
+</script>
+
+<script>
+    // Remove extra empty "entry" anchor tag that messes up the styling
+    document.querySelector(".post-date-buttons-row-2 > a[name*=entry]").remove();
+</script>

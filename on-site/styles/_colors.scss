@@ -1,0 +1,110 @@
+$primary: #455a77;
+$secondary: #F25C68;
+$secondary2: #fbc1b9;
+$secondary-darker: #9a4046;
+
+$black-100: darken($primary, 50%);
+$black-75: darken($primary, 30%);
+$black-50: darken($primary, 10%);
+$black-25: lighten($primary, 10%);
+$black-10: lighten($primary, 30%);
+$black-5: lighten($primary, 50%);
+
+$background-color: #192028;
+
+$bg-light: #EDDBB7;
+$bg-dark: #192028;
+
+//$darkest-blue: #1F2835;
+//$dark-blue: #232E3D;
+//$mid-blue: #344662;
+////$mid-blue: #465B79;
+//$light-blue: #6D8EBD;
+//$lightest-blue: #81A8DF;
+
+//$white: #d9dbe5;
+//$black: #1f1d1c;
+
+//$strat-dark: #b36b42;
+//$thia-dark: #8a56a4;
+//$kris-dark: #657925;
+//$mnem-dark: #2e6f7f;
+//$soph-dark: #8e681e;
+//
+//$admin-dark: #6363b5;
+//$mod-dark: #cf687b;
+//$mod-dark2: #d96a7e;
+
+//$primary-light: #C59E4E;
+//$secondary-light: #FD9E39;
+
+//$secondary-light: #AA8417;
+//$secondary-light: #beb018; #a39b1d
+$secondary-light: #8aa31d;
+$primary-light: #FC9E3A;
+
+$gold-100: darken($primary-light, 50%);
+$gold-75: darken($primary-light, 30%);
+$gold-50: darken($primary-light, 10%);
+$gold-25: lighten($primary-light, 10%);
+$gold-10: lighten($primary-light, 30%);
+$gold-5: lighten($primary-light, 50%);
+
+//$dark-tan: #EDCCA5;
+//$mid-tan: #ECD2B5;
+//$light-tan: #EDE2B7;
+
+$darkest-tan: #FCC78E;
+//$dark-tan: #edd4a5;
+$dark-tan: #efcd8e;
+//$mid-tan: #ECD2B5;
+$mid-tan: #f1d6ab;
+$light-tan: #EDDBB7;
+$lightest-tan: #EDE2B7;
+
+$darker-pink: #EDC1B7;
+$lighter-pink: #EDCAB7;
+
+$light-orange: #FCC78E;
+
+$strat-light: #cb7848;
+$thia-light: #a668c4;
+$kris-light: #84993d;
+$mnem-light: #49a0b6;
+$soph-light: #ac8026;
+
+html[data-theme="dark"] {
+  --background-color: #192028;
+  --text-color: #d9dbe5;
+  --link-color: #81A8DF;
+  --nav-text: #94a7c1;
+  --text-shadow: black;
+  --older-news: #587297;
+
+  --primary: #455a77;
+  --secondary: #F25C68;
+
+  /* darkest to lightest shades of blue, based off primary */
+  --palette1: #1F2835;        /* darkest blue */
+  --palette2: #232E3D;        /* dark blue */
+  --palette3: #344662;        /* mid blue */
+  --palette4: #6D8EBD;        /* light blue */
+  --palette5: #81A8DF;        /* lightest blue */
+
+  /* user groups */
+  --strat: #b36b42;
+  --thia: #8a56a4;
+  --kris: #657925;
+  --mnem: #2e6f7f;
+  --soph: #8e681e;
+  --admin: #6363b5;
+  --mod: #cf687b;
+  --guest: #344662;
+
+  /* pokemon type colors */
+}
+
+html[data-theme="light"] {
+  --background-color: #EDDBB7;
+  --text-color: #1f1d1c;
+}

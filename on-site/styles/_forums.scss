@@ -1,0 +1,324 @@
+@use "colors";
+
+.section-bg {
+  background-color: var(--palette2);
+  padding: 24px;
+
+  h4 {
+    color: var(--palette5);
+  }
+
+  h5 {
+    color: var(--palette4);
+  }
+}
+
+.row-items {
+  flex-grow: 1;
+}
+
+.subforums {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  a {
+    color: var(--palette5);
+    font-family: Rasputin, serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: solid 1px;
+    padding: 8px;
+    margin: 4px;
+  }
+}
+
+/* Hide empty boxes that appear next to subforum names */
+.subforums-macro {
+  display: none;
+}
+
+.sub-board-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .sub-board-names {
+    color: var(--palette5);
+    font-family: Rasputin, serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: solid 1px;
+    display: inline;
+    padding: 8px;
+    margin: 4px;
+  }
+}
+
+.forum-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 16px;
+}
+
+#handbook-56, #subregions-1 {
+  display: none;
+}
+
+div[id*="forum-"] {
+  background-color: var(--palette2);
+  padding: 24px;
+  flex-grow: 1;
+
+  .forum-title a {
+    font-size: 32px;
+    color: var(--palette5);
+  }
+
+  a {
+    color: var(--palette4);
+    text-decoration: none;
+  }
+}
+
+// Styling for The Pokemon Handbook
+#forum-1 {
+  flex-basis: 100%;
+  display: flex;
+  align-items: flex-start;
+  //padding: 40px;
+
+  .handbook-title a {
+    font-family: Jemina, serif;
+    //font-size: 135px;
+    font-size: 7rem;
+    font-weight: bold;
+    line-height: 7rem;
+    text-transform: uppercase;
+    color: var(--palette5);
+  }
+
+  #handbook-desc {
+    line-height: 32px;
+    font-size: 20px;
+    text-align: right;
+  }
+}
+
+#forum-3, #forum-5 {
+  width: 30%;
+}
+
+#forum-6 {
+  width: 50%;
+}
+
+#forum-7 {
+  width: 30%;
+}
+
+#forum-9, #forum-10 {
+  width: calc(50% - 56px);
+}
+
+#forum-12, #forum-13, #forum-37, #forum-41, #forum-42, #forum-43, #forum-44, #forum-45 {
+  width: calc(50% - 56px);
+}
+
+#forum-3, #forum-5, #forum-6, #forum-7, #forum-9, #forum-10, #forum-12, #forum-13, #forum-15, #forum-17, #forum-37, #forum-41, #forum-42, #forum-43, #forum-44, #forum-45 {
+  .forum-row-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    height: calc(100% - 32px);
+  }
+
+  .forum-desc {
+    width: 100%;
+  }
+
+  .forum-last-poster-row {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: normal;
+    text-align: left;
+    width: 100%;
+
+    .last-topic-poster {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    img {
+      width: 80px;
+      box-shadow: 4px 4px var(--secondary);
+    }
+  }
+}
+
+#cat-5, #cat-6, #cat-7, #cat-8, #cat-14 {
+  .category-header {
+    display: none;
+  }
+}
+
+#cat-5, #cat-6, #cat-7, #cat-8 {
+  .forum-layout {
+    display: none;
+  }
+}
+
+#cat-5.active, #cat-6.active, #cat-7.active, #cat-8.active {
+  .forum-layout {
+    display: flex;
+    margin: 8px 16px;
+  }
+}
+
+#forum-56 {
+  display: none;
+}
+
+.forum-row-layout {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.forum-desc {
+  width: 70%;
+}
+
+.forum-last-poster-row {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  text-align: right;
+  gap: 16px;
+
+  .last-topic-poster {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  img {
+    width: 80px;
+    box-shadow: 4px 4px var(--secondary);
+  }
+}
+
+.news-archives #forum-2 {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 16px;
+}
+
+#char-creation {
+  width: 60%;
+}
+
+#char-roster {
+  width: 40%;
+}
+
+// Subregion display toggle
+.subregions-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 56px;
+  margin: 15px auto;
+  width: 100%;
+
+  .subregions-styling {
+    font-family: Jemina, serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    //margin: 0 30px;
+  }
+}
+
+.active-subregion {
+  text-shadow: 3px 3px 1px var(--secondary);
+}
+
+#subregions-4 {
+  width: 100%;
+}
+
+#lythra-desc.active, #callitris-desc.active, #parrya-desc.active, #ilex-desc.active {
+  display: flex;
+}
+
+.subregion-desc {
+  background-color: var(--palette2);
+  padding: 24px;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+
+  .subregion-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 70%;
+
+    .subregion-title {
+      font-family: Jemina, serif;
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 2rem;
+      color: var(--palette5);
+    }
+
+    div {
+      line-height: 1.4rem;
+    }
+
+    .subregion-weather {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      .sr-weather {
+        font-family: Rasputin, serif;
+        text-transform: uppercase;
+        border: solid 1px;
+        padding: 8px;
+        color: var(--palette5);
+      }
+    }
+  }
+
+  .region-types {
+    width: 35%;
+
+    .pkmn-type-header {
+      font-family: Rasputin, serif;
+      text-transform: uppercase;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0;
+    }
+  }
+}

@@ -1,0 +1,201 @@
+<div id="board-stats">
+    <div class="category-header">
+        Board Statistics
+    </div>
+    <div id="board-stats-layout">
+        <div id="users-online">
+            <div id="stats-links-layout">
+                <ul class="stats-links">
+                    <a href="https://astonish.jcink.net/index.php?act=Members" title="All Members">
+                        <li><i class="fa-light fa-users"></i> All Members</li>
+                    </a>
+                    <a href="index.php?act=Online&amp;CODE=listall&amp;sort_key=click" title="Last Click">
+                        <li><i class="fa-light fa-bullseye-pointer"></i> Last Click</li>
+                    </a>
+                    <a href="https://astonish.jcink.net/index.php?act=Search&CODE=getactive" title="Active Topics">
+                        <li><i class="fa-light fa-panel-fire"></i> Active Topics</li>
+                    </a>
+                    <a href="https://astonish.jcink.net/index.php?act=Stats" title="Top Posters">
+                        <li><i class="fa-light fa-user-crown"></i> Top Posters</li>
+                    </a>
+                </ul>
+            </div>
+
+            <div id="currently-online" class="section-bg">
+                <!-- |online_list| -->
+            </div>
+
+            <div id="online-today" class="section-bg">
+                <!-- |online_today_list| -->
+            </div>
+        </div>
+
+        <!-- Newest user -->
+        <div id="new-member">
+            <div id="buttons-group">
+                <a class="fa-light fa-memo-circle-info new-member-buttons" title="plot page"></a>
+                <a class="fa-light fa-envelopes-bulk new-member-buttons" title="view posts"></a>
+                <a class="fa-light fa-message-pen new-member-buttons" title="send a message"></a>
+            </div>
+
+            <div id="new-member-text"></div>
+        </div>
+
+        <!-- Active Topics -->
+        <div id="active-topics">
+        </div>
+    </div>
+
+    <!-- Number of characters per group -->
+    <div id="bottom-roster">
+        <div class="strat"></div>
+        <div class="thia"></div>
+        <div class="kris"></div>
+        <div class="mnem"></div>
+        <div class="soph"></div>
+    </div>
+</div>
+
+<!-- Mobile display -->
+<div id="board-stats-mobile">
+    <div id="member-image-mobile"></div>
+    <div id="welcome-member-mobile">welcome, <br/><!-- |newest_member| --></div>
+    <div id="new-mem-links-mobile">
+        <a class="fa-light fa-memo-circle-info new-member-buttons" title="plot page"></a>
+        <a class="fa-light fa-envelopes-bulk new-member-buttons" title="view posts"></a>
+        <a class="fa-light fa-message-pen new-member-buttons" title="send a message"></a>
+    </div>
+    <div id="stats-links-mobile">
+        <div>
+            <a class="fa-light fa-users slm-buttons"
+               href="https://astonish.jcink.net/index.php?act=Members"
+               title="All Members"></a>
+            <a class="fa-light fa-bullseye-pointer slm-buttons"
+               href="index.php?act=Online&amp;CODE=listall&amp;sort_key=click"
+               title="Last Click"></a>
+        </div>
+        <div>
+            <a class="fa-light fa-panel-fire slm-buttons"
+               href="https://astonish.jcink.net/index.php?act=Search&CODE=getactive"
+               title="Active Topics"></a>
+            <a class="fa-light fa-user-crown slm-buttons"
+                 href="https://astonish.jcink.net/index.php?act=Stats"
+                 title="Top Posters"></a>
+        </div>
+    </div>
+</div>
+<div id="bottom-roster-mobile">
+    <div class="strat"></div>
+    <div class="thia"></div>
+    <div class="kris"></div>
+    <div class="mnem"></div>
+    <div class="soph"></div>
+</div>
+
+<script>
+    // Fetch information for most recent topics
+    const rt_titles = document.querySelectorAll("div#recent-topics strong");
+    const rt_names = document.querySelectorAll("td.recent-topics-info a:nth-child(2)");
+    const rt_links = document.querySelectorAll("td.recent-topics-info a:nth-child(1)");
+
+    document.getElementById("active-topics").innerHTML = '<div id="active-topics-title">Active Topics</div>';
+
+    for (let i = 0; i < rt_titles.length; i++) {
+        document.getElementById("active-topics").innerHTML += `
+            <div class="section-bg topics-list">
+                <a href="${rt_links[i].getAttribute("href")}" class="topic-title">${rt_titles[i].innerHTML}</a>
+                <p>${rt_names[i].innerHTML}</p>
+            </div>`;
+    }
+
+    // Get totals for each trainer class for the roster
+    const groups = <!-- |member_groups| -->;
+    const memberGroups = document.querySelector("#bottom-roster").children;
+    memberGroups[0].innerText = `${groups.g_1.total} Strategos`;
+    memberGroups[1].innerText = `${groups.g_6.total} Thiarchos`;
+    memberGroups[2].innerText = `${groups.g_7.total} Krisigos`;
+    memberGroups[3].innerText = `${groups.g_8.total} Mnemntia`;
+    memberGroups[4].innerText = `${groups.g_9.total} Sophist`;
+
+    const memberGroupsMobile = document.querySelector("#bottom-roster-mobile").children;
+    memberGroupsMobile[0].innerText = `${groups.g_1.total}`;
+    memberGroupsMobile[1].innerText = `${groups.g_6.total}`;
+    memberGroupsMobile[2].innerText = `${groups.g_7.total}`;
+    memberGroupsMobile[3].innerText = `${groups.g_8.total}`;
+    memberGroupsMobile[4].innerText = `${groups.g_9.total}`;
+
+    async function parseHtmlResponse(response) {
+        const parser = new DOMParser()
+        return parser.parseFromString(await response.text(), 'text/html')
+    }
+
+    // Get info for latest member from members list page and add it to the newest member section
+    async function getLatestMember() {
+        // Set member list filters to show the 10 newest members from all groups
+        function buildFormData(obj) {
+            const formData = new FormData()
+            Object.entries(obj).forEach(([key, value]) => {
+                formData.append(key, value)
+            })
+            return formData
+        }
+
+        const formData = buildFormData({
+            name: "",
+            filter: "ALL",
+            sort_key: "joined",
+            sort_order: "desc",
+            max_results: "10"
+        })
+
+        // Use above params to fetch data from members list page
+        const doc = await parseHtmlResponse(
+            await fetch(
+                'https://astonish.jcink.net/index.php?act=Members&max_results=10',
+                {
+                    method: "POST",
+                    body: formData,
+                }
+            )
+        )
+
+        const latestMemberEl = doc.querySelector('div.memberlist-layout div:nth-child(1)');
+        const latestMemberLinks = latestMemberEl.querySelectorAll(".memberlist-nav-btns a");
+
+        const profLink = latestMemberEl.querySelector(".char-name a").getAttribute("href");
+
+        const prof = await parseHtmlResponse(
+            await fetch(profLink)
+        )
+
+        return {
+            name: latestMemberEl.querySelector(".char-name span").innerText,
+            profLink: latestMemberEl.querySelector(".char-name a").getAttribute("href"),
+            profileImage: latestMemberEl.querySelector(".hover-image").getAttribute("style"),
+            plotPage: latestMemberLinks[0].getAttribute("href"),
+            posts: latestMemberLinks[2].getAttribute("href"),
+            message: latestMemberLinks[1].getAttribute("href"),
+            avatar: prof.querySelector("#face-claim img"),
+        }
+    }
+
+    // Add latest member info to the board stats
+    getLatestMember().then(latestMember => {
+        // desktop version
+        const newMemberEl = document.getElementById("new-member");
+        newMemberEl.style = latestMember.profileImage;
+        const newMemButtons = newMemberEl.querySelector("#buttons-group").children;
+        newMemButtons[0].href = latestMember.plotPage;
+        newMemButtons[1].href = latestMember.posts;
+        newMemButtons[2].href = latestMember.message;
+        newMemberEl.querySelector("#new-member-text").innerHTML = `welcome,<br /><a href="${latestMember.profLink}">${latestMember.name}</a>`;
+
+        // mobile version
+        const newMemImg = document.getElementById("member-image-mobile");
+        newMemImg.appendChild(latestMember.avatar);
+        const newMemMobileBtns = document.querySelectorAll("#new-mem-links-mobile a");
+        newMemMobileBtns[0].href = latestMember.plotPage;
+        newMemMobileBtns[1].href = latestMember.posts;
+        newMemMobileBtns[2].href = latestMember.message;
+    })
+</script>

@@ -1,0 +1,43 @@
+.char-claims-list {
+  display: grid;
+  grid-template:
+    repeat(auto-fill, 45px)
+    / 1fr 1fr 1fr;
+  gap: 16px;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.claims-header {
+  font-family: Rasputin, serif;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 8px 16px;;
+  background-color: var(--palette3);
+  text-align: center;
+  align-content: center;
+}
+
+.claim-entry {
+  padding: 0 16px;
+
+  a.claim-strat {
+    color: var(--strat);
+  }
+
+  a.claim-thia {
+    color: var(--thia);
+  }
+
+  a.claim-kris {
+    color: var(--kris);
+  }
+
+  a.claim-mnemn {
+    color: var(--mnem);
+  }
+
+  a.claim-soph {
+    color: var(--soph);
+  }
+}

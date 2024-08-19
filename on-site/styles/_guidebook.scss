@@ -1,0 +1,171 @@
+#guide-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  h3 {
+    font-family: Jemina, serif;
+    font-size: 4rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: 100%;
+    margin: 16px 16px 0 16px;
+    padding: 8px;
+  }
+
+  aside {
+    line-height: 25px;
+
+    ul {
+      margin: 16px 0;
+      padding: 16px;
+      background-color: var(--palette3);
+      border-radius: 0 5px 5px 0;
+    }
+
+    h4 {
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+
+  #guidebook-info-container {
+    height: 1150px;
+    width: 50%;
+    margin: 16px 40px;;
+    background-color: var(--palette2);
+    flex-grow: 1;
+
+    .guide-tab-content {
+      height: calc(1150px - 72px);
+      margin: 32px 48px;
+      overflow: auto;
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    h4 {
+      font-size: 32px;
+      line-height: 50px;
+      text-transform: capitalize;
+    }
+
+    h5 {
+      font-size: 24px;
+      text-decoration: underline;
+      line-height: 50px;
+    }
+
+    ul {
+      counter-reset: item;
+    }
+
+    ul > li {
+      list-style-type: none;
+      margin: 16px 24px;
+      line-height: 20px;
+      counter-increment: item;
+    }
+
+    ul > li:before {
+      content: counters(item, "", decimal-leading-zero) ".";
+      padding-right: 0.5em;
+      font-weight: bold;
+    }
+
+    blockquote {
+      margin: 24px 40px;
+      line-height: 1.4rem;
+    }
+
+    #faq {
+      tt {
+        font-family: Rasputin, serif;
+        font-size: 20px;
+        text-transform: uppercase;
+        line-height: 1.5rem;
+      }
+
+      tt::before {
+        content: "♦";
+        margin-right: 8px;
+      }
+
+      blockquote {
+        margin-top: 8px;
+      }
+    }
+
+    .mechanics-table {
+      display: grid;
+      grid-template: repeat(4, 25%) / repeat(3, 1fr);
+      gap: 8px;
+      width: 90%;
+      margin: auto;
+
+      div {
+        padding: 8px 16px;
+        background-color: var(--palette3);
+      }
+    }
+
+    #trainers {
+      .strategos {
+        color: var(--strat);
+      }
+
+      .thiarchos {
+        color: var(--thia);
+      }
+
+      .krisigos {
+        color: var(--kris);
+      }
+
+      .mnemntia {
+        color: var(--mnem);
+      }
+
+      .sophist {
+        color: var(--soph);
+      }
+
+      blockquote b {
+        font-family: Rasputin, serif;
+        font-weight: bold;
+      }
+    }
+
+    .synopsis-note {
+      border: solid 1px;
+      margin: 16px 24px;
+      padding: 16px;
+      line-height: 1.4rem;
+    }
+
+    #tickets {
+      dt {
+        margin: 24px;
+      }
+
+      dt::before {
+        content: "♦";
+        margin-right: 8px;
+      }
+    }
+
+    #battle {
+      .mechanics-table {
+        display: grid;
+        grid-template: 1fr 1fr / repeat(4, 25%);
+      }
+    }
+  }
+}
+
+#map {
+  height: 700px;
+}

@@ -1,0 +1,455 @@
+@use "colors";
+
+/* User main profile styling */
+.main-profile {
+  #prof-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 24px;
+    gap: 8px;
+
+    img {
+      width: 30%;
+    }
+  }
+
+  #prof-header-text {
+    width: 65%;
+    text-align: right;
+
+    h1 {
+      margin: 8px;
+      color: white;
+    }
+
+    a {
+      border: solid 2px;
+      padding: 8px;
+    }
+  }
+
+  #profile-sections {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin: 40px 16px 16px;
+
+    span {
+      font-family: Rasputin, serif;
+      font-size: 40px;
+      color: var(--text-color);
+    }
+
+    .active {
+      text-shadow: 4px 4px var(--palette3);
+    }
+  }
+
+  #flavor-text {
+    color: var(--text-color);
+    padding: 24px 40px;
+    font-size: 24px;
+    font-family: Rasputin, serif;
+    font-style: italic;
+    text-align: right;
+  }
+
+  #prof-basics-bg {
+    background-color: var(--palette2);
+    margin: 16px;
+    padding: 16px;
+    gap: 8px;
+
+    .basics-title {
+      font-family: Rasputin, serif;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .basics-field {
+      color: var(--text-color);
+    }
+
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      li {
+        width: 32%;
+      }
+    }
+  }
+
+  #face-claim {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+
+    #fc-text {
+      display: flex;
+      gap: 4px;
+      flex-direction: column;
+    }
+
+    img {
+      height: 80px;
+    }
+  }
+
+  #prof-bio {
+    display: none;
+    background-color: var(--palette2);
+    margin: 16px;
+    padding: 16px;
+    height: 450px;
+    overflow: scroll;
+  }
+
+  #computer {
+    display: none;
+    flex-wrap: wrap;
+    margin: 16px;
+    padding: 2px;
+    gap: 8px;
+    height: 450px;
+    overflow: scroll;
+
+    .pkmn-display {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      background-color: var(--palette2);
+      text-align: center;
+      width: 179px;
+      height: 179px;
+      font-family: Rasputin, serif;
+
+      .fa-sparkles {
+        display: none;
+      }
+
+      img {
+        width: 120px;
+      }
+    }
+  }
+
+  div[id*="threads-"] {
+    display: none;
+    height: 450px;
+    overflow: auto;
+  }
+
+  .fizztrackerwrap {
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+
+    .tracker-title {
+      font-family: Jemina, serif;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      margin: 16px;
+    }
+
+    div[id*="track"] {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .tracker-item {
+      width: 490px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      color: white;
+
+      a {
+        font-family: Rasputin, serif;
+        font-size: 24px;
+      }
+    }
+
+    .caughtup {
+      background-color: var(--palette2);
+    }
+
+    .myturn a {
+      color: var(--text-color);
+    }
+  }
+
+  .fizzhistorywrap {
+    margin: 16px;
+
+    .tracker-title {
+      font-family: Jemina, serif;
+      color: var(--text-color);
+      font-size: 40px;
+      font-weight: bold;
+      margin: 32px 16px 16px;
+    }
+
+    div[id*="history"] {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .tracker-item {
+      width: 490px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      color: white;
+      background-color: var(--palette2);
+
+      a {
+        font-family: Rasputin, serif;
+        font-size: 24px;
+      }
+    }
+  }
+
+  #prof-btns-layout {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 16px;
+    margin: 16px;
+
+    .prof-btns {
+      color: var(--text-color);
+      background-color: var(--palette3);
+      flex-grow: 1;
+      padding: 8px;
+      text-align: center;
+      font-family: Rasputin, serif;
+    }
+  }
+
+  #prof-btns-mobile {
+    @extend #prof-btns-layout;
+    display: none;
+  }
+
+  #played-by {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 24px;
+    color: var(--palette4);
+
+    #dev-board {
+      padding: 8px 24px;
+      border: solid 2px;
+      border-right-width: 0;
+      font-family: Rasputin, serif;
+      font-size: 20px;
+    }
+  }
+
+  .ooc-fields {
+    width: 525px;
+    color: var(--text-color);
+    font-size: 16px;
+
+    b {
+      font-family: Rasputin, serif;
+      color: var(--palette4);
+      margin-right: 8px;
+    }
+  }
+
+  #please-tag {
+    margin: 16px 24px;
+    color: var(--text-color);
+
+    b {
+      font-family: Rasputin, serif;
+      margin-right: 8px;
+    }
+  }
+
+  /* Mobile responsiveness */
+  @media screen and (max-width: 414px) {
+    #prof-header {
+      margin: 0;
+
+      #prof-header-text {
+        h1 {
+          font-size: 3.5rem;
+          line-height: 4rem;
+        }
+      }
+    }
+
+    #profile-sections {
+      gap: 8px;
+
+      span {
+        font-size: 20px;
+      }
+    }
+
+    #flavor-text {
+      font-size: 20px;
+    }
+
+    #prof-basics-bg {
+      ul {
+        gap: 16px;
+
+        li {
+          min-width: 45%;
+        }
+      }
+    }
+
+    #prof-btns-layout {
+      display: none;
+    }
+
+    #prof-btns-mobile {
+      display: flex;
+
+      .prof-btns {
+        font-size: 2rem;
+        width: 50px;
+        height: 50px;
+        align-content: center;
+      }
+    }
+
+    #played-by {
+      h5 {
+        width: 60%;
+        align-self: flex-end;
+        font-size: 16px;
+      }
+
+      #dev-board {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+/* Change colors for main profile based on user group */
+@mixin main-profile-colors($group-color) {
+  #prof-header {
+    img {
+      box-shadow: 8px 8px $group-color;
+    }
+
+    #prof-header-text {
+      h1 {
+        text-shadow: 4px 4px $group-color;
+      }
+
+      a {
+        color: $group-color;
+      }
+    }
+  }
+
+  #flavor-text {
+    background-color: $group-color;
+  }
+
+  #prof-basics-bg .basics-title {
+    color: $group-color;
+  }
+
+  #face-claim img {
+    box-shadow: 4px 4px $group-color;
+  }
+
+  .fizztrackerwrap {
+    .tracker-title {
+      text-decoration: underline $group-color;
+    }
+
+    .caughtup a {
+      color: $group-color;
+    }
+
+    .myturn {
+      background-color: $group-color;
+    }
+  }
+
+  .fizzhistorywrap {
+    .tracker-title {
+      text-decoration: underline $group-color;
+    }
+
+    .tracker-item a {
+      color: $group-color;
+    }
+  }
+
+  #played-by {
+    b {
+      color: $group-color;
+    }
+
+    #dev-board {
+      color: $group-color;
+    }
+  }
+
+  #please-tag b {
+    color: $group-color;
+  }
+}
+
+#ooc-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 8px 24px;
+}
+
+// Main profile
+// change colors based on member group
+#group-strategos {
+  @include main-profile-colors(var(--strat));
+}
+
+#group-thiarchos {
+  @include main-profile-colors(var(--thia));
+}
+
+#group-mnemntia {
+  @include main-profile-colors(var(--mnem));
+}
+
+#group-krisigos {
+  @include main-profile-colors(var(--kris));
+}
+
+#group-sophist {
+  @include main-profile-colors(var(--soph));
+}
+
+#group-validating, #group-Nereid, #group-inactive {
+  @include main-profile-colors(var(--guest));
+}
+
+#group-Admin {
+  @include main-profile-colors(var(--admin));
+}
+
+#group-Mod {
+  @include main-profile-colors(var(--mod));
+}

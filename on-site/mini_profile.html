@@ -1,0 +1,44 @@
+<div class="mini-prof-top mp-<!-- |g_id| -->">
+    <div class="mp-name">
+        <!-- |name| -->
+    </div>
+
+    <div class="mp-char-info">
+        <ul>
+            <li><b>Age:</b><br/> <!-- |field_3| --></li>
+            <li><b>Gender:</b><br/> <!-- |field_5| --></li>
+            <li><b>Orientation:</b><br/> <!-- |field_8| --></li>
+            <li><b>Height:</b><br/> <!-- |field_10| --></li>
+            <li class="blood-type"><b>Blood Type:</b><br/></li>
+            <li><b>Class:</b><br/> <!-- |g_title| --></li>
+            <li class="proficiencies"><b>Proficiencies:</b><br/>
+            </li>
+            <li><b>Occupation:</b><br/> <!-- |field_11| --></li>
+        </ul>
+    </div>
+
+    <div class="mp-toggle-button">
+        <i class="fa-light fa-chevrons-left"></i>
+    </div>
+    <div class="flavor-text-container">
+        <div><span class="mp-flavor-text"><!-- |field_15| --></span><br/>
+            <span><!-- |posts| --> posts • <!-- |points| --><i class="fa-kit fa-pokedollar"></i></span></div>
+        <!-- |avatar| -->
+    </div>
+</div>
+
+<div class="mini-prof-mobile mp-<!-- |g_id| -->">
+    <div class="mp-name"><!-- |name| --></div>
+    <!-- |avatar| -->
+</div>
+
+<script>
+    // Default avatars don't work for guests, so we'll set them here.
+    guestMP = document.querySelector(".mp-2");
+    if (guestMP) {
+        const defaultAvatar = document.createElement("img");
+        defaultAvatar.setAttribute("src", "https://files.jcink.net/uploads2/astonish/avatars/diascia_default_avatar.png");
+        defaultAvatar.setAttribute("alt", "avatar");
+        document.querySelector(".flavor-text-container").appendChild(defaultAvatar);
+    }
+</script>

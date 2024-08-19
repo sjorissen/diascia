@@ -1,0 +1,524 @@
+@use "colors";
+
+/* Styling for the ribbon above each posts that contains the direct link, date & time, and post buttons */
+.post-date-buttons-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+
+  .post-row-btn span {
+    margin: 0 16px 0 4px;
+  }
+}
+
+/* Styling for container that includes hover avatar image and user information to the left, and the post contents
+   to the right.
+ */
+.post-content-container {
+  display: flex;
+  gap: 8px;
+  margin: 16px 24px 40px;
+
+  img {
+    height: 400px;
+    width: auto;
+  }
+
+  .post-content {
+    padding: 32px;
+  }
+
+  .hover-img-player-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 250px;
+
+    .ooc-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-left: -6px;
+      padding: 8px 16px;
+
+      b {
+        font-family: Rasputin, serif;
+      }
+
+      span {
+        font-family: Rasputin, serif;
+        font-size: 24px;
+      }
+
+      li {
+        line-height: 25px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 414px) {
+    margin: 0;
+
+    .post-content {
+      padding: 32px 0;
+    }
+
+    .hover-img-player-info {
+      display: none;
+    }
+  }
+}
+
+/* Styling for character's mini-profile that appears above each of their posts. */
+.mini-prof-top {
+//.mini-prof {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  height: 170px;
+
+  img {
+    height: 150px;
+    width: auto;
+  }
+
+  .mp-name {
+    width: 650px;
+    align-self: flex-end;
+    margin: 0;
+    font-size: 3rem;
+    font-weight: bold;
+    //color: $white;
+
+    span {
+      //color: $white;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+  }
+
+  .flavor-text-container {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+    align-items: center;
+    width: 400px;
+    font-family: Rasputin, serif;
+    text-align: right;
+    //background-color: $dark-blue;
+    padding-left: 16px;
+
+    .mp-flavor-text {
+      font-size: 12px;
+      font-style: italic;
+    }
+  }
+
+  .mp-char-info {
+    display: none;
+    align-items: center;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 16px 24px 16px 30px;
+      gap: 16px;
+
+      li {
+        width: 20%;
+        font-size: 14px;
+
+        b {
+          font-family: Rasputin, serif;
+          font-size: 16px;
+          //color: $thia-dark;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  .mp-toggle-button {
+    padding: 4px;
+    border-radius: 4px;
+    position: relative;
+    left: 20px;
+  }
+
+  .open {
+    display: flex;
+    margin-left: 0;
+    width: 650px;
+  }
+
+  .hide {
+    display: none;
+  }
+}
+
+.mini-prof-mobile {
+  display: none;
+}
+
+@mixin mp-colors($group, $color) {
+  .mp-#{$group} {
+    img {
+      box-shadow: 8px 8px $color;
+    }
+
+    .mp-name {
+      text-shadow: 3px 3px $color;
+    }
+
+    .mp-toggle-button {
+      background-color: $color;
+    }
+
+    .mp-char-info ul li b {
+      color: $color;
+    }
+  }
+}
+
+.mini-prof-bottom {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 16px;
+  background-color: var(--palette2);
+  padding: 16px;
+
+  .mpb-player-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: Rasputin, serif;
+
+    .mp-played-by {
+      font-size: 32px;
+
+      b {
+        color: var(--thia);
+      }
+    }
+
+    .mp-links {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 8px;
+
+      .mp-link-btns {
+        color: var(--thia);
+        border: solid 2px;
+        padding: 8px;
+      }
+    }
+  }
+}
+
+/* Styling for elements within the post content. */
+.post-content {
+  blockquote {
+    margin: 16px 32px;
+    padding-left: 24px;
+  }
+
+  hr {
+    width: 50%;
+    margin: auto;
+    //color: $white;
+  }
+
+  .trigger-warning {
+    font-family: Rasputin, serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: solid 2px;
+    width: fit-content;
+    margin: auto;
+    padding: 16px;
+  }
+
+  ul {
+    list-style-type: disc;
+    margin: 16px;
+  }
+}
+
+.post-content {
+  flex-grow: 1;
+}
+
+/* Set the colors for the post row styling to match the user's group color. */
+@mixin post-row-colors($gid, $color) {
+  .date-buttons-#{$gid} {
+    background-color: $color;
+
+    a {
+      color: var(--text-color);
+    }
+  }
+
+  .post-content-#{$gid} {
+    img {
+      box-shadow: -8px 8px $color;
+    }
+
+    .hover-img-player-info {
+      .ooc-info {
+        b {
+          color: $color;
+        }
+
+        border-left: solid 4px $color;
+      }
+    }
+
+    .post-content {
+      h2, h3, h4, h6, h8 {
+        text-decoration-color: $color;
+      }
+
+      b, i, a {
+        color: $color;
+      }
+
+      blockquote {
+        border-left: $color solid 1px;
+      }
+
+      .trigger-warning i {
+        color: $color;
+      }
+
+      .simple-post, .sip-img {
+        box-shadow: 6px 6px $color;
+      }
+
+      .banner-img {
+        box-shadow: 6px -6px $color;
+      }
+
+      .font-icon-post {
+        div {
+          border-left: $color solid 1px;
+        }
+
+        .fi-post-icon {
+          color: $color;
+        }
+      }
+    }
+  }
+}
+
+.wide-post, .simple-post, .basic-post, .sm-icon-post, .banner-post, .font-icon-post {
+  background-color: var(--palette1);
+  padding: 24px 32px;
+  margin: 0 100px;
+}
+
+.wide-post {
+  margin: 0 25px;
+}
+
+.sm-icon-post {
+  display: flex;
+  gap: 16px;
+  padding-left: 16px;
+
+  .sip-img {
+    background-size: cover;
+    height: 100px;
+    width: 100px;
+  }
+
+  .sip-body {
+    width: 75%;
+  }
+}
+
+.banner-post {
+  .banner-bg {
+    height: 215px;
+    margin: -24px -31px 0 -31px;
+  }
+
+  .banner-img {
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .banner-body {
+    padding-top: 24px;
+  }
+}
+
+.font-icon-post {
+  display: flex;
+  gap: 16px;
+
+  .fi-post-icon {
+    font-size: 35px;
+    height: 35px;
+    padding-top: 16px;
+  }
+
+  div {
+    padding-left: 24px;
+  }
+}
+
+#CODE-WRAP {
+  background-color: var(--palette2);
+  box-shadow: var(--palette3) 8px 8px;
+  margin: auto;
+}
+
+#CODE {
+  background-color: var(--palette1);
+  padding: 16px;
+  margin-top: -20px;
+  font-family: Courier, sans-serif;
+}
+
+#pkmn-inventory {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--palette2);
+
+    h6 {
+      margin: 16px;
+      text-decoration: none;
+    }
+
+    ul {
+      display: flex;
+      gap: 16px;
+      list-style-type: none;
+      font-family: Rasputin, serif;
+      font-size: 20px;
+      text-transform: uppercase;
+      width: 100%;
+    }
+
+    img {
+      box-shadow: none;
+      float: left;
+      max-height: 200px;
+    }
+
+    #pkmn-details {
+      background-color: var(--palette3);
+      margin: -16px 0 0 0;
+      padding: 8px;
+    }
+
+    #pkmn-moveset {
+      display: flex;
+      flex-wrap: wrap;
+      width: 500px;
+      justify-content: right;
+
+      li {
+        background-color: var(--palette3);
+        height: fit-content;
+        width: 43%;
+        padding: 8px;
+        text-align: center;
+      }
+    }
+
+    .pkmn-desc {
+      padding: 0 16px;
+      height: 250px;
+      overflow: scroll;
+    }
+  }
+}
+
+#AST-plot-page {
+  > br {
+    display: none;
+  }
+
+  #plotter-links {
+    display: flex;
+    gap: 8px;
+
+    button {
+      font-family: Rasputin, serif;
+      font-size: 16px;
+      text-transform: uppercase;
+      background-color: var(--palette3);
+      color: var(--text-color);
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px 5px 0 0;
+
+      .active {
+        background-color: var(--palette2);
+      }
+    }
+
+    //.active {
+    //  background-color: $dark-blue;
+    //}
+  }
+
+  .plotter-char-body {
+    display: none;
+    justify-content: space-between;
+    gap: 16px;
+    background-color: var(--palette2);
+    padding: 16px 32px;
+
+    p {
+      width: 450px;
+    }
+
+    aside {
+      width: 200px;
+      background-color: var(--palette1);
+      padding: 8px 16px;
+      box-shadow: 6px 6px var(--palette3);
+    }
+  }
+
+  .active-body {
+    display: flex;
+  }
+}
+
+#hemitheo-bloodline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 16px;
+
+  .family-blood {
+    background-color: var(--palette2);
+    padding: 24px;
+    width: 42%;
+
+    ul {
+      list-style-type: none;
+      line-height: 1.4rem;
+
+      b {
+        color: white;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

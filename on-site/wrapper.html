@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title><% TITLE %></title>
+    <% CSS %>
+    <% JAVASCRIPT %>
+    <script src="https://kit.fontawesome.com/95c3db2fb2.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""
+    ></script>
+</head>
+
+<body>
+<!-- Navbar at top of page -->
+<nav>
+    <ul class="nav-left">
+        <li title="home">
+            <a href="https://astonish.jcink.net/index.php?act=idx">
+                <i class="fa-light fa-home"></i>
+            </a>
+        </li>
+        <li title="turn on light mode" class="fa-light fa-sun" data-theme-toggle></li>
+        <!--        add dark mode option -->
+        <li>it's <b>earnia</b> in gaia</li>
+    </ul>
+    <ul class="nav-right logged-in">
+        <li title="user profile">
+            <a href="https://astonish.jcink.net/index.php?showuser=<!-- |id| -->">
+                <i class="fa-light fa-user"></i>
+            </a>
+        </li>
+        <li title="user control panel">
+            <a href="https://astonish.jcink.net/?act=UserCP&CODE=01">
+                <i class="fa-light fa-user-gear"></i>
+            </a>
+        </li>
+        <li title="messages">
+            <a href="https://astonish.jcink.net/index.php?act=Msg&CODE=01">
+                <i class="fa-light fa-envelope"></i>
+            </a>
+        </li>
+        <li title="alerts">
+            <a href="https://astonish.jcink.net/index.php?act=UserCP&CODE=alerts">
+                <i class="fa-light fa-bell"></i>
+            </a>
+        </li>
+        <li title="store">
+            <a href="https://astonish.jcink.net/index.php?act=store">
+                <i class="fa-light fa-cash-register"></i>
+            </a>
+        </li>
+        <li title="admin control panel" id="acp-button">
+            <a href="https://astonish.jcink.net/admin.php">
+                <i class="fa-light fa-sliders"></i>
+            </a>
+        </li>
+        <li title="switch accounts">
+            <a onclick="acctListDropdown()">
+                <i class="fa-light fa-swap"></i>
+            </a>
+        </li>
+        <li title="logout">
+            <a href="http://astonish.jcink.net/index.php?act=Login&CODE=03&key=d40bb2085b5a0c585c5b11ba4e96545f">
+                <i class="fa-light fa-arrow-right-from-bracket"></i>
+            </a>
+        </li>
+        <!--        <div class="sub-accounts-container">-->
+        <!--            <div class="sub-accounts-list"></div>-->
+        <!--        </div>-->
+    </ul>
+    <ul class="nav-right logged-out">
+        <li title="register">
+            <a href="https://astonish.jcink.net/index.php?s=da2ae228730e1d67344431943f4359d0&act=Reg&CODE=00">
+                <i class="fa-light fa-square-plus"></i>
+            </a>
+        </li>
+        <li title="login">
+            <a href="https://astonish.jcink.net/index.php?s=da2ae228730e1d67344431943f4359d0&act=Login&CODE=00">
+                <i class="fa-light fa-arrow-right-to-bracket"></i>
+            </a>
+        </li>
+    </ul>
+    <div class="nav-mobile" onclick="mobileNavDropdown()">
+        <i class="fa-light fa-bars"></i>
+    </div>
+    <div class="nav-mobile-dropdown">
+        <a href="https://astonish.jcink.net/index.php?showuser=<!-- |id| -->" title="user profile">
+            <i class="fa-light fa-user"></i>
+            Profile
+        </a>
+        <a href="https://astonish.jcink.net/?act=UserCP&CODE=01" title="user control panel">
+            <i class="fa-light fa-user-gear"></i>
+            UCP
+        </a>
+        <a href="https://astonish.jcink.net/index.php?act=Msg&CODE=01" title="messages">
+            <i class="fa-light fa-envelope"></i>
+            Messages
+        </a>
+        <a href="https://astonish.jcink.net/index.php?act=UserCP&CODE=alerts" title="alerts">
+            <i class="fa-light fa-bell"></i>
+            Alerts
+        </a>
+        <a href="https://astonish.jcink.net/index.php?act=store" title="store">
+            <i class="fa-light fa-cash-register"></i>
+            Store
+        </a>
+        <a href="https://astonish.jcink.net/admin.php" title="admin control panel" id="acp-mobile">
+            <i class="fa-light fa-sliders"></i>
+            ACP
+        </a>
+        <a onclick="acctListMobile()" title="switch accounts">
+            <i class="fa-light fa-swap"></i>
+            Switch Accounts
+        </a>
+        <a href="http://astonish.jcink.net/index.php?act=Login&CODE=03&key=d40bb2085b5a0c585c5b11ba4e96545f"
+           title="logout">
+            <i class="fa-light fa-arrow-right-from-bracket"></i>
+            Logout
+        </a>
+    </div>
+</nav>
+
+<!-- Banner image -->
+<header class="banner">
+    <!--    <div id="quick-links-mobile">-->
+    <!--        <div class="fa-regular fa-compass"></div>-->
+    <!--    </div>-->
+    <div id="banner-title">
+        <a href="https://astonish.jcink.net/index.php?act=idx"><h1>Astonish</h1></a>
+    </div>
+    <div class="quick-links">
+        <ul>
+            <li>
+                <a href="https://astonish.jcink.net/index.php?act=Pages&pid=1" id="guidebook">Guidebook</a>
+            </li>
+            <li>
+                <a href="https://astonish.jcink.net/index.php?showtopic=5">Claims</a>
+            </li>
+            <li>
+                <a href="https://astonish.jcink.net/index.php?showtopic=7">Directory</a>
+            </li>
+            <li>
+                <a href="https://astonish.jcink.net/index.php?showtopic=8">Hemitheo Bloodlines</a>
+            </li>
+            <li>
+                <a href="https://astonish.jcink.net/index.php?act=Pages&pid=6%22">Region Map</a>
+            </li>
+            <li>
+                <a href="https://astonish.jcink.net/index.php?act=Pages&pid=1#credits">Credits</a>
+            </li>
+            <li>
+                <a href="https://discord.gg/Vax9nx93b3">Discord</a>
+            </li>
+        </ul>
+    </div>
+    <div id="tagline">a modern fantasy & pokémon rp</div>
+</header>
+
+<div class="mobile-banner">
+    <div class="mobile-title">Astonish</div>
+    <div class="mobile-tagline">a modern fantasy & pokémon rp</div>
+    <div class="mobile-quick-links">
+        <a href="https://astonish.jcink.net/index.php?act=Pages&pid=1">Guidebook</a>
+        <a href="https://astonish.jcink.net/index.php?showtopic=5">Claims</a>
+        <a href="https://astonish.jcink.net/index.php?showtopic=7">Directory</a>
+        <a href="https://astonish.jcink.net/index.php?showtopic=8">Hemitheo Bloodlines</a>
+        <a href="https://astonish.jcink.net/index.php?act=Pages&pid=6%22">Region Map</a>
+        <a href="https://astonish.jcink.net/index.php?act=Pages&pid=1#credits">Credits</a>
+        <a href="https://discord.gg/Vax9nx93b3">Discord</a>
+    </div>
+</div>
+
+<!-- Welcome text & latest news -->
+<div class="header-background">
+    <div class="header-info welcome">
+        <p><span id="welcome-back">Welcome back <span id="wb-<!-- |g_id| -->"><!-- |name| --></span>,</span> to the Gaia
+            region, where people and Pokémon
+            have lived,
+            worked and grown together in harmony since time immemorial. Follow your heart and find your passion; whether
+            it be in combat, performance, protection, or something else entirely, Arceus and the Divine Pantheon that
+            protect our region are sure to know your heart and aid you in your journey. </p>
+    </div>
+    <div class="header-info latest-news">
+        <div id="news-header">Latest News</div>
+        <ul>
+            <li><span class="news-date">feb 12 •</span> our althēros event is now live! sign up to experience a romantic
+                and exciting day with someone~
+            </li>
+            <li id="older-news"><span class="news-date">dec 1 •</span> sign ups are open for our holiday event, the
+                arcéthilia market & festival, to celebrate the season of chestasio!
+            </li>
+        </ul>
+    </div>
+</div>
+
+<% BOARD HEADER %>
+<% NAVIGATION %>
+
+<div class="forums-background">
+    <% BOARD %>
+</div>
+
+<div class="acct-list-outer">
+    <div class="sub-accounts-container">
+        <div class="sub-accounts-list"></div>
+    </div>
+</div>
+
+<!--
+Each separate script block contains code for different pages. They must be between their own separate tags to run
+properly on their respective pages. Because everything is crammed into the wrapper, it's going to cause a bunch of
+annoying error messages in the console, but we're just going to try to ignore those.
+-->
+
+<script>
+    /* Get current active subregion/theme from cookies. Shout out to allenhwkim on stackoverflow
+     * for this function.
+     */
+    function getCookie(name) {
+        let cookie = {};
+        document.cookie.split(';').forEach(function (el) {
+            let split = el.split('=');
+            cookie[split[0].trim()] = split.slice(1).join("=");
+        })
+        return cookie[name];
+    }
+</script>
+
+<script>
+    // Check for theme cookie and set it if found
+    // (Theme is set to "dark" by default if there isn't one)
+    if (document.cookie.split(";").some((item) => item.trim().startsWith("theme="))) {
+        document.querySelector("html").dataset.theme = getCookie("theme");
+    }
+
+    // Switch theme when toggle button is clicked
+    const themeToggle = document.querySelector("[data-theme-toggle]");
+    themeToggle.addEventListener("click", () => {
+        const currentTheme = document.querySelector("html").dataset.theme;
+        if (currentTheme === "light") {
+            // Update toggle button icon & title
+            themeToggle.title = "turn on light mode";
+            themeToggle.classList = "fa-light fa-sun";
+
+            // Change theme to dark mode
+            document.querySelector("html").dataset.theme = "dark";
+
+            // Set cookie
+            let oneYear = new Date(new Date().setFullYear(new Date().getFullYear() + 1));
+            document.cookie = "theme=dark;expires=" + oneYear;
+        } else if (currentTheme === "dark") {
+            // Update toggle button icon & title
+            themeToggle.title = "turn on dark mode";
+            themeToggle.classList = "fa-light fa-moon-over-sun";
+
+            // Change theme to light mode
+            document.querySelector("html").dataset.theme = "light";
+
+            // Set cookie
+            let oneYear = new Date(new Date().setFullYear(new Date().getFullYear() + 1));
+            document.cookie = "theme=light;expires=" + oneYear;
+        }
+    })
+</script>
+
+<script>
+    /* Nav bar code. Displays different options for users that are logged in vs logged out. Also handles
+     * drop-down menu.
+     */
+    subAccounts = document.querySelectorAll("#subaccounts_menu option");
+    acctValue = [];
+    acctName = [];
+
+    for (let i = 1; i < subAccounts.length; i++) {
+        acctValue.push(subAccounts[i].getAttribute("value"));
+        acctName.push(subAccounts[i].innerText);
+    }
+
+    acctValue;
+
+    const group = "<!-- |g_title| -->";  // gets the member group current user is in
+
+    // For users not logged in, display login & register icons
+    if (group === "Guests" || group === "banned") {
+        document.querySelector(".logged-in").style = "display: none";
+        document.querySelector(".logged-out").style = "display: flex";
+    } else {
+        document.querySelector(".logged-in").style = "display: flex";
+        document.querySelector(".logged-out").style = "display: none";
+    }
+
+    // For admins & mods, display the ACP button in the nav bar
+    if (group === "Admin" || group === "Mod") {
+        document.getElementById("acp-button").style = "display: block";
+        document.getElementById("acp-mobile").style = "display: block";
+    } else {
+        document.getElementById("acp-button").style = "display: none";
+        document.getElementById("acp-mobile").style = "display: none";
+    }
+
+    // Switch to hamburger icon for mobile
+    if (window.screen.width <= 414) {
+        document.querySelector(".logged-in").style = "display: none";
+        document.querySelector(".logged-out").style = "display: none";
+    }
+
+    function mobileNavDropdown() {
+        document.querySelector(".nav-mobile-dropdown").classList.toggle("show");
+    }
+
+    // subaccount switching
+    subAccounts = document.querySelectorAll("#subaccounts_menu option");
+    acctForm = document.querySelector("#subaccounts_menu form");
+    // dropdownBox = document.querySelector(".sub-accounts-container");
+    dropdownBox = document.querySelector(".acct-list-outer");
+    dropdownMobile = document.querySelector(".sub-accounts-mobile");
+    dropdownList = document.querySelectorAll(".sub-accounts-list");
+    acctListHTML = '';
+
+    // Get list of subaccounts & their values & build dropdown list
+    for (let i = 1; i < subAccounts.length; i++) {
+        acctValue = subAccounts[i].getAttribute("value");
+        acctName = subAccounts[i].innerText;
+
+        htmlFragment = `<div data-value="${acctValue}" onclick="acctSwitch(this.getAttribute('data-value'))"> ${acctName} </div>`;
+        acctListHTML += htmlFragment;
+    }
+
+    // dropdownList.innerHTML = acctListHTML;
+    dropdownList.forEach(el => el.innerHTML = acctListHTML);
+
+    // When name on list is clicked, submit form & switch accounts
+    function acctSwitch(val) {
+        acctForm.querySelector("select").value = val;
+        acctForm.submit();
+    }
+
+    // account switch dropdown function
+    function acctListDropdown(event) {
+        dropdownBox.classList.toggle("show-acct-list");
+    }
+
+    dropdownBox.addEventListener("click", (event) => {
+        if (!event.target.closest(".sub-accounts-container")) {
+            dropdownBox.classList.remove("show-acct-list");
+        }
+    })
+
+    function acctListMobile() {
+        dropdownBox.classList.toggle("show-acct-list");
+    }
+</script>
+
+<script>
+    /* Index page code. Controls the subregion toggling & display based off of member group.
+     * (ex: If user is logged in, or if they're an admin/mod.)
+     */
+
+    // New messages/alerts
+    const messages = document.querySelector("li[title=messages] i");
+    const alerts = document.querySelector("li[title=alerts] i");
+
+    if (<!-- |new_msg| -->) {
+        messages.className = "fa-kit fa-light-envelope-sparkle";  // new unread messages
+    } else {
+        messages.className = "fa-light fa-envelope";   // no new messages
+    }
+
+    if (<!-- |new_alerts| -->) {
+        alerts.className = "fa-kit fa-light-bell-sparkle";   // new alerts
+    } else {
+        alerts.className = "fa-light fa-bell";
+    }
+
+    // Open & close dropdown menu when icon is clicked
+    // function acctListDropdown() {
+    //     dropdownBox.classList.toggle("hidden");
+    // }
+
+    // Grab the appropriate HTML for the toggle buttons and the subregion blocks
+    subregionsToggle = document.querySelectorAll("#subregions-4 .subregions-styling");
+    subregionsDesc = document.querySelectorAll("#subregions-4 .subregion-desc");
+    const subregionList = [
+        {name: "lythra", cat: "cat-5"},
+        {name: "callitris", cat: "cat-6"},
+        {name: "parrya", cat: "cat-7"},
+        {name: "ilex", cat: "cat-8"}
+    ];
+
+    // Helper function for toggling when a subregion is clicked
+    function switchSubregion(event) {
+        const el = event.target;
+        const subregion = el.dataset.subregion;
+        const subregionDesc = subregion + "-desc";  // build string for ID attribute
+
+        // Display the clicked subregion name as active
+        subregionsToggle.forEach(sr => sr.classList.remove("active-subregion"));
+        el.classList.add("active-subregion");
+
+        // Display the correct subregion block
+        subregionsDesc.forEach(desc => desc.classList.remove("active"));
+        document.querySelector(`#subregions-4 #${subregionDesc}`).classList.add("active");
+        subregionList.forEach(sub => {
+            if (sub.name === subregion) {
+                document.getElementById(sub.cat).classList.add("active");
+                let oneYear = new Date(new Date().setFullYear(new Date().getFullYear() + 1));
+                document.cookie = "subnum=" + sub.cat + ";expires=" + oneYear;
+                document.cookie = "subregion=" + subregion + ";expires=" + oneYear;
+            } else {
+                document.getElementById(sub.cat).classList.remove("active");
+            }
+        });
+    }
+
+    /* Check to see if a cookie exists for active subregion and set it if it does. If not, set Lythra
+     * as the active subregion by default.
+     */
+    if (document.cookie.split(";").some((item) => item.trim().startsWith("subnum="))) {
+        let subNum = getCookie("subnum");
+        let activeSub = getCookie("subregion");
+        console.log(activeSub);
+        document.getElementById(subNum).classList.add("active");
+        document.querySelector(`#subregions-4 #${activeSub}-desc`).classList.add("active")
+        document.querySelector(`#subregions-4 [data-subregion=${activeSub}]`).classList.add("active-subregion")
+    } else {
+        document.getElementById("cat-5").classList.add("active");   // show lythra subregion by default
+    }
+
+    subregionsToggle.forEach(el => el.addEventListener("click", switchSubregion));   // makes buttons clickable
+</script>
+
+<script>
+    /* Adds styling for topic list pages & new topic/poll buttons. Uses the pagination and buttons provided by jcink,
+     * but moved out of its table layout for easier styling.
+     */
+    const postButtons = [];
+    const pagesNumTop = [];
+    const pagesNumBottom = [];
+    let i = 0;
+
+    // Grabs pages information (pages links & current page)
+    const pagination = document.querySelectorAll(".pagination");
+
+    // Grabs the new topic & new post buttons
+    btns = document.querySelectorAll(".button-large");
+    btns.forEach(el => postButtons.push(el.parentElement));
+
+    // Template divs for the page buttons at the top & bottom
+    pagesTop = document.getElementById("topic-pages-top");
+    pagesBottom = document.getElementById("topic-pages-bottom");
+
+    // Build a new div for the current page number
+    currentPageTop = document.createElement("div");
+    currentPageBottom = document.createElement("div");
+    currentPageTop.classList.add("pagination_page", "current-page");
+    currentPageBottom.classList.add("pagination_page", "current-page");
+
+    if (pagination[0].querySelector(".pagination_current b")) {
+        currentPageTop.innerText = pagination[0].querySelector(".pagination_current b").innerText;
+        currentPageBottom.innerText = pagination[1].querySelector(".pagination_current b").innerText;
+
+        // Put non-current pages into arrays
+        pagination[0].querySelectorAll(".pagination_page").forEach(el => pagesNumTop.push(el));
+        pagination[1].querySelectorAll(".pagination_page").forEach(el => pagesNumBottom.push(el));
+
+        // Add current page to its proper spot in the array
+        if (currentPageTop.innerText > pagesNumTop.length) {
+            pagesNumTop.push(currentPageTop);
+            pagesNumBottom.push(currentPageBottom);
+        } else {
+            for (let i in pagesNumTop) {
+                if (currentPageTop.innerText < pagesNumTop[i].innerText) {
+                    pagesNumTop.splice(i, 0, currentPageTop);
+                    pagesNumBottom.splice(i, 0, currentPageBottom);
+                    console.log(pagesNumTop);
+                    break;
+                }
+            }
+        }
+
+        // Add pages buttons to their respective containers
+        pagesNumTop.forEach(el => pagesTop.appendChild(el));
+        pagesNumBottom.forEach(el => pagesBottom.appendChild(el));
+    }
+
+    // Move post buttons to their containers
+    buttonsDisplay = document.querySelectorAll(".topic-buttons");
+    buttonsDisplay.forEach(el => {
+        el.appendChild(postButtons[i]);
+        el.appendChild(postButtons[i + 1]);
+        i += 2;
+    })
+</script>
+
+<script>
+    /* Handles the pages, buttons, etc., for the topics, since they're a little different. Event listener is needed
+     * so this portion won't run until jcink finishes loading everything on the page in.
+     */
+    window.addEventListener("load", () => {
+        // Create "ribbon" to place all topic buttons on
+        const topicBtnsRibbon = document.createElement("div");
+        topicBtnsRibbon.classList.add("topic-btn-background");
+
+        // Get the topic buttons for both top & bottom of the page
+        const topicBtnsRows = document.querySelector(".topic-buttons-row");
+
+        // Get pagination buttons & link to first unread post
+        const topicCurrPage = topicBtnsRows.querySelector(".pagination_current");
+        const topicPages = topicBtnsRows.querySelectorAll(".pagination_page");
+        const firstUnread = topicBtnsRows.querySelector(".goto-firstunread");
+
+        // Create div for current page (for styling)
+        const currPageDiv = document.createElement("div");
+        currPageDiv.classList.add("pagination_page");
+        currPageDiv.classList.add("current-page");
+
+        const paginationDiv = document.createElement("div");
+        paginationDiv.classList.add("topic-pages");
+
+        if (topicCurrPage !== null) {
+            currPageDiv.innerText = topicCurrPage.innerText;
+
+            // Put all other pages into an array
+            const topicPagesArr = Array.from(topicPages);
+
+            // Add current page into array in order
+            if (currPageDiv.innerText > topicPagesArr.length) {
+                topicPagesArr.push(currPageDiv);
+            } else {
+                for (let i = 0; i < topicPagesArr.length; i++) {
+                    if (currPageDiv.innerText < topicPagesArr[i].innerText) {
+                        topicPagesArr.splice(i, 0, currPageDiv);
+                        break;
+                    }
+                }
+            }
+
+            // Put pages & unread link into div for layout
+            topicPagesArr.forEach(el => paginationDiv.appendChild(el));
+            paginationDiv.appendChild(firstUnread);
+        }
+
+        // Get Reply/New Topic buttons
+        const btnsReplyNew = topicBtnsRows.querySelectorAll(".topic-buttons-layout a");
+
+        // Put topic buttons into div element
+        const replyNewDiv = document.createElement("div");
+        replyNewDiv.classList.add("topic-buttons-layout");
+        btnsReplyNew.forEach(el => replyNewDiv.appendChild(el));
+
+        // Add pagination & buttons divs to ribbon
+        topicBtnsRibbon.appendChild(paginationDiv);
+        topicBtnsRibbon.appendChild(replyNewDiv);
+
+        // Place at top & bottom of page
+        const bgNode = document.querySelector(".forums-background");
+        const topicTables = document.querySelectorAll(".forums-background > table");
+
+        bgNode.insertBefore(topicBtnsRibbon.cloneNode(true), topicTables[0]);
+        bgNode.insertBefore(topicBtnsRibbon, topicTables[1]);
+
+        // Hide remaining jcink buttons
+        document.querySelectorAll("td.topic-buttons-layout").forEach(el => el.style = "display: none");
+    });
+</script>
+
+<script>
+    // move topic description to new line, remove comma
+    topicDescEl = document.querySelector(".topic-desc");
+    topicDesc = topicDescEl.innerHTML.replace(", ", "<br />");
+    topicDescEl.innerHTML = topicDesc;
+
+    // topic buttons
+    const topicBtnsRow = document.querySelectorAll(".forums-background tr");
+    topicBtnsRow.forEach(el => el.classList.add("topic-buttons-row"));
+    topicBtnsRow.forEach(el => el.querySelector("td:nth-child(2)").classList.add("topic-buttons-layout"));
+
+    // remove styling on topic options for mods
+    document.querySelector(".bar div").style = "";
+
+    // remove alignment for forum jump & search bar
+    const jumpSearchEl = document.querySelector("form[name=jumpmenu]").parentElement;
+    console.log(jumpSearchEl);
+    jumpSearchEl.removeAttribute("align");
+    // add custom styling
+    jumpSearchEl.classList.add("jump-search-layout");
+</script>
+
+<script>
+    // character plotters
+    // move character name links into div, add names to class list for body
+    plotterCharNames = document.querySelectorAll("#AST-plot-page button");
+    plotterCharBody = document.querySelectorAll("#AST-plot-page .plotter-char-body");
+    plotterLinks = document.getElementById("plotter-links");
+
+    plotterCharNames.forEach((el, i) => {
+        el.innerText = el.dataset.character.replaceAll("-", " ");
+        el.addEventListener("click", plotterCharSwitch);
+        plotterLinks.append(el);
+        plotterCharBody[i].classList.add(el.dataset.character);
+    });
+
+    function plotterCharSwitch(event) {
+        const el = event.target;
+        charName = el.dataset.character;
+        console.log(charName);
+        plotterLinks.childNodes.forEach(btn => btn.classList.remove("active"));
+        plotterCharBody.forEach(char => char.classList.remove("active-body"));
+        el.classList.add("active");
+        document.querySelector(`.${charName}`).classList.add("active-body");
+    }
+
+    plotterLinks.childNodes[0].classList.add("active");
+    plotterCharBody[0].classList.add("active-body");
+
+    // remove extra, empty paragraph tag
+    extraP = document.querySelectorAll(".plotter-char-body p");
+
+    for (let i = 0; i < extraP.length; i++) {
+        if (i % 2 !== 0) {
+            extraP[i].remove();
+        } else {
+            continue;
+        }
+    }
+</script>
+
+<script>
+    // new post form page
+    document.querySelector("input[name='tagcount']").style = "";
+    postOptions = document.getElementById("post-options");
+    $(postOptions).prepend('<div id="post-options-header">Post Options</div>');
+    enterPost = document.querySelector("#enter-your-post .pformright");
+
+    postFormSubmit = document.querySelectorAll("#posting-form .pformstrip")[5];
+    postFormSubmit.classList.add("post-form-submit");
+    postFormSubmit.classList.remove("pformstrip");
+
+    postSumHeader = document.querySelector("#topic-summary .pformstrip");
+    newLocation = document.querySelector("#topic-summary");
+    postSumHeader.classList.add("topic-summary-header");
+    postSumHeader.classList.remove("pformstrip");
+    document.querySelector(".forums-background").insertBefore(postSumHeader, newLocation);
+
+    $(enterPost).prepend(`<div id="styles-templates-section">
+    <span class="styles-templates-headers">Styles</span>
+    <div class="styles-templates-buttons">
+        <input class="codebuttons" type="button" value="h1" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[H1][/H1]'" name="h1">
+        <input class="codebuttons" type="button" value="h2" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[H2][/H2]'" name="h2">
+        <input class="codebuttons" type="button" value="h3" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[H3][/H3]'" name="h3">
+        <input class="codebuttons" type="button" value="h4" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[H4][/H4]'" name="h4">
+        <input class="codebuttons" type="button" value="h5" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[H5][/H5]'" name="h5">
+        <input class="codebuttons" type="button" value="tw" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[TW][/TW]'" name="tw">
+        <input class="codebuttons" type="button" value="hr" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[hr]'" name="hr">
+    </div>
+    <span class="styles-templates-headers">Essentials</span>
+    <div class="styles-templates-buttons">
+        <input class="codebuttons" type="button" value="plot page" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[PLOTPAGE][CHARACTER=character-name] description text here[WANTS][LIST][*]item [*]item [*]item[/LIST][/WANTS][/CHARACTER][/PLOTPAGE]'" name="plot page">
+        <input class="codebuttons" type="button" value="pc" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[PC]\\n\\r[POKEMON][H6]Nickname[/H6]\\n[PKMN-DETAILS]\\n[DETAIL]type_1[/DETAIL] [DETAIL]type_2[/DETAIL]\\n[DETAIL]species[/DETAIL] [DETAIL]gender[/DETAIL]\\n[DETAIL]nature[/DETAIL] [DETAIL]ability[/DETAIL]\\n[/PKMN-DETAILS]\\n[IMG]https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/201.png[/IMG]\\n[PKMN-MOVESET]\\n[DETAIL]MOVE _1[/DETAIL] [DETAIL]MOVE_2[/DETAIL]\\n[DETAIL]MOVE_3[/DETAIL] [DETAIL]MOVE_4[/DETAIL]\\n[DETAIL]MOVE_5[/DETAIL] [DETAIL]MOVE_6[/DETAIL]\\n[/PKMN-MOVESET]\\n[PKMN-DESC]description_here[/PKMN-DESC][/POKEMON]\\n\\r[/PC]'" name="pc">
+        <input class="codebuttons" type="button" value="new character" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[CHARACTER=character-name]description text here[WANTS][LIST][*]item [*]item [*]item[/LIST][/WANTS][/CHARACTER]'" name="new character">
+        <input class="codebuttons" type="button" value="new pkmn" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[POKEMON][H6]Nickname[/H6]\\n[PKMN-DETAILS]\\n[DETAIL]type_1[/DETAIL] [DETAIL]type_2[/DETAIL]\\n[DETAIL]species[/DETAIL] [DETAIL]gender[/DETAIL]\\n[DETAIL]nature[/DETAIL] [DETAIL]ability[/DETAIL]\\n[/PKMN-DETAILS]\\n[IMG]https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/201.png[/IMG]\\n[PKMN-MOVESET]\\n[DETAIL]MOVE _1[/DETAIL] [DETAIL]MOVE_2[/DETAIL]\\n[DETAIL]MOVE_3[/DETAIL] [DETAIL]MOVE_4[/DETAIL]\\n[DETAIL]MOVE_5[/DETAIL] [DETAIL]MOVE_6[/DETAIL]\\n[/PKMN-MOVESET]\\n[PKMN-DESC]description_here[/PKMN-DESC][/POKEMON]'" name="new pokemon">
+    </div>
+    <span class="styles-templates-headers">Templates</span>
+    <div class="styles-templates-buttons">
+        <input class="codebuttons" type="button" value="post" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[POST][/POST]'" name="post">
+        <input class="codebuttons" type="button" value="basic" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[BASIC][/BASIC]'" name="basic">
+        <input class="codebuttons" type="button" value="wide" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[WIDE][/WIDE]'" name="wide">
+        <input class="codebuttons" type="button" value="small icon" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[SMALLICON][/SMALLICON]'" name="small icon">
+        <input class="codebuttons" type="button" value="banner" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[BANNER][/BANNER]'" name="banner">
+        <input class="codebuttons" type="button" value="font icon" onclick="document.forms['REPLIER'].elements['Post'].value=document.forms['REPLIER'].elements['Post'].value+'[FONTICON][/FONTICON]'" name="font icon">
+        <a href="https://astonish.jcink.net/index.php?showtopic=9&st=0&#entry29">Preview All Templates</a>
+    </div>
+</div>`)
+</script>
+
+<script>
+    /* Forum store layout fixes. Hides "stats" and "misc links" sections & removes the "align" attribute so
+     * everything can be styled with css.
+     */
+    document.querySelector(".store-menu .row4").removeAttribute("align"); // pokedollars line
+    menuTitles = document.querySelectorAll(".store-menu .pformstrip")     // menu headers
+    menuSections = document.querySelectorAll(".store-menu p");            // menu links
+
+    contentTitle = document.querySelectorAll(".store-home .pformstrip");  // category headers
+    contentSection = document.querySelectorAll(".store-home .row2");      // cat links & descriptions
+
+    // hide unwanted sections
+    for (let i = 2; i < 4; i++) {
+        menuTitles[i].style.display = "none";
+        menuSections[i].style.display = "none";
+    }
+
+    contentTitle.forEach(el => el.removeAttribute("align"));
+    contentSection.forEach(el => el.removeAttribute("align"));
+</script>
+
+<script>
+    /* Build a mobile menu for the store page. Creates two new "div" elements (that are hidden until the screen
+    * is the proper size) and copies the menu elements over to it. Mobile menu can be shown/hidden when necessary
+    * to save screen space.
+    */
+
+    // Get nodes to add new menu to later
+    ucpBG = document.querySelector(".forums-background");
+    ucpTable = document.querySelector(".forums-background table");
+
+    // Create the element for the mobile menu
+    mobileMenuContent = document.createElement("div");
+    mobileMenuContent.classList.add("mobile-menu-content");
+    mobileMenuContent.classList.add("hide-menu");   // menu is hidden by default
+
+    // Create an array for the elements in the store menu
+    ucpMenu = document.querySelector("#ucpmenu");
+    menuArray = Array.from(ucpMenu.children);
+    menuArray.shift();   // remove "Menu" title from top of array
+
+    // Copy the menu elements into the mobile menu
+    menuArray.forEach(node => {
+        mobileMenuContent.appendChild(node.cloneNode(true));
+    });
+
+    // Create menu banner to toggle hiding/showing the menu
+    ucpMenuMobile = document.createElement("div");
+    ucpMenuMobile.classList.add("store-menu-mobile");
+    ucpMenuMobile.innerHTML = `Menu <i class="fa-light fa-chevrons-down"></i>`;
+
+    // Insert both mobile menu elements at the top of the page
+    ucpBG.insertBefore(mobileMenuContent, ucpTable);
+    ucpBG.insertBefore(ucpMenuMobile, mobileMenuContent);
+
+    // Element for the chevrons icon
+    icon = document.querySelector(".store-menu-mobile i");
+
+    // When the "Menu" banner is clicked, show/hide menu and change icon to appropriate one
+    ucpMenuMobile.addEventListener("click", (el) => {
+        mobileMenuContent.classList.toggle("hide-menu");
+
+        if (icon.classList[1] === "fa-chevrons-down") {
+            icon.classList.replace("fa-chevrons-down", "fa-chevrons-up");
+        } else if (icon.classList[1] === "fa-chevrons-up") {
+            icon.classList.replace("fa-chevrons-up", "fa-chevrons-down");
+        }
+    })
+
+    // removes unwanted default jcink stuff
+    document.querySelector("#ucpcontent td .row1").closest("[valign]").style = "display: none";
+    document.querySelector("th.titlemedium").closest("tr").style = "display: none";
+
+    ucpTable = document.querySelector("#ucpcontent table");
+    ucpTable.removeAttribute("width");
+    ucpTable.removeAttribute("style");
+</script>
+
+<script>
+    // Add alt text to avatar & set broken images to default for mini-profiles
+    mpAvatar = document.querySelectorAll(".flavor-text-container img");
+    mpAvatar.forEach(img => {
+        img.setAttribute("alt", "avatar");
+        img.setAttribute("onerror", "this.onerror = null; this.src = 'https://files.jcink.net/uploads2/astonish/avatars/diascia_default_avatar.png'");
+    });
+</script>
+
+<script>
+    window.addEventListener("load", () => {
+        // Add alt text to avatar & set broken images to default for last poster displays
+        lpAvatar = document.querySelectorAll(".last-poster-avatar");
+        lpAvatar.forEach(img => {
+            img.setAttribute("alt", "avatar");
+            img.setAttribute("onerror", "this.onerror = null; this.src = 'https://files.jcink.net/uploads2/astonish/avatars/diascia_default_avatar.png'");
+        });
+    })
+</script>
+
+<% SKIN_SELECTOR %>
+<% COPYRIGHT %>
+</body>
+</html>
