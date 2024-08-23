@@ -1,23 +1,16 @@
 @use "colors";
 
-/* Hide jcink's pagination setup */
-.pagination {
-  display: none;
-}
-
-/* Ribbon above & below topic list that displays number of pages & New Topic/Poll buttons */
-.topic-btn-background {
-  background-color: var(--palette3);
-  padding: 4px 16px;
+/* Styling for individual topics' page & topic option buttons above & below posts. */
+.topic-buttons-row {
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: var(--palette3);
 
-  #topic-pages-top, #topic-pages-bottom, .topic-pages {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 4px;
+  /* Hide "Pages" text & number, leaving only links for pages. */
+  .pagination_pagetxt {
+    display: none;
   }
 
   .pagination_page {
@@ -30,26 +23,37 @@
     text-align: center;
   }
 
-  .current-page {
+  .pagination_current {
     background-color: var(--palette3);
     border: var(--palette2) 2px solid;
     color: var(--palette2);
-  }
-
-  .topic-buttons {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    padding: 4px;
   }
 
   .button-large {
-    font-family: Rasputin, serif;
-    //background-color: $dark-blue;
-    //border: $dark-blue 2px solid;
-    //color: $light-blue;
-    margin: 4px;
-    padding: 8px;
+    border: none;
+    background-color: var(--palette2);
   }
+
+  .goto-firstunread {
+    color: var(--palette4);
+
+    a {
+      color: var(--palette4);
+    }
+  }
+
+  td {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.topic-buttons-layout {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  gap: 8px;
 }
 
 .topic-header {
@@ -63,6 +67,47 @@
   gap: 8px;
 }
 
+/* Styling for buttons for topics list pages. */
+tr:has(.pagination) {
+  background-color: var(--palette3);
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  td {
+    display: flex;
+    gap: 8px;
+  }
+
+  .pagination_pagetxt {
+    display: none;
+  }
+
+  .pagination_page {
+    font-family: Rasputin, serif;
+    background-color: var(--palette2);
+    border: var(--palette2) 2px solid;
+    color: var(--palette4);
+    width: 16px;
+    padding: 4px;
+    text-align: center;
+  }
+
+  .pagination_current {
+    background-color: var(--palette3);
+    border: var(--palette2) 2px solid;
+    color: var(--palette2);
+    padding: 4px;
+  }
+
+  .button-large {
+    border: none;
+    background-color: var(--palette2);
+  }
+}
+
+/* Styling for topics displayed in topics list. */
 div[id*="topic-"]:not(#topic-options) {
   background-color: var(--palette2);
   width: calc(50% - 36px);

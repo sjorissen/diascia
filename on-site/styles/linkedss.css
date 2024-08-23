@@ -55,6 +55,7 @@ html[data-theme=light] {
 }
 .post-content-container .post-content {
   padding: 32px;
+  background-color: var(--background-color);
 }
 .post-content-container .hover-img-player-info {
   display: flex;
@@ -110,8 +111,10 @@ html[data-theme=light] {
   margin: 0;
   font-size: 3rem;
   font-weight: bold;
+  color: var(--text-color);
 }
 .mini-prof-top .mp-name span {
+  color: var(--text-color);
   font-size: 3rem;
   font-weight: bold;
 }
@@ -123,6 +126,7 @@ html[data-theme=light] {
   width: 400px;
   font-family: Rasputin, serif;
   text-align: right;
+  background-color: var(--palette2);
   padding-left: 16px;
 }
 .mini-prof-top .flavor-text-container .mp-flavor-text {
@@ -147,6 +151,7 @@ html[data-theme=light] {
 .mini-prof-top .mp-char-info ul li b {
   font-family: Rasputin, serif;
   font-size: 16px;
+  color: var(--thia);
   text-transform: uppercase;
 }
 .mini-prof-top .mp-toggle-button {
@@ -166,6 +171,175 @@ html[data-theme=light] {
 
 .mini-prof-mobile {
   display: none;
+}
+
+.mp-1 img {
+  box-shadow: 8px 8px var(--strat);
+}
+.mp-1 .mp-name {
+  text-shadow: 3px 3px var(--strat);
+}
+.mp-1 .mp-toggle-button {
+  background-color: var(--strat);
+}
+.mp-1 .mp-char-info ul li b {
+  color: var(--strat);
+}
+
+.mp-6 img {
+  box-shadow: 8px 8px var(--thia);
+}
+.mp-6 .mp-name {
+  text-shadow: 3px 3px var(--thia);
+}
+.mp-6 .mp-toggle-button {
+  background-color: var(--thia);
+}
+.mp-6 .mp-char-info ul li b {
+  color: var(--thia);
+}
+
+.mp-7 img {
+  box-shadow: 8px 8px var(--kris);
+}
+.mp-7 .mp-name {
+  text-shadow: 3px 3px var(--kris);
+}
+.mp-7 .mp-toggle-button {
+  background-color: var(--kris);
+}
+.mp-7 .mp-char-info ul li b {
+  color: var(--kris);
+}
+
+.mp-8 img {
+  box-shadow: 8px 8px var(--mnem);
+}
+.mp-8 .mp-name {
+  text-shadow: 3px 3px var(--mnem);
+}
+.mp-8 .mp-toggle-button {
+  background-color: var(--mnem);
+}
+.mp-8 .mp-char-info ul li b {
+  color: var(--mnem);
+}
+
+.mp-9 img {
+  box-shadow: 8px 8px var(--soph);
+}
+.mp-9 .mp-name {
+  text-shadow: 3px 3px var(--soph);
+}
+.mp-9 .mp-toggle-button {
+  background-color: var(--soph);
+}
+.mp-9 .mp-char-info ul li b {
+  color: var(--soph);
+}
+
+.mp-4 img {
+  box-shadow: 8px 8px var(--admin);
+}
+.mp-4 .mp-name {
+  text-shadow: 3px 3px var(--admin);
+}
+.mp-4 .mp-toggle-button {
+  background-color: var(--admin);
+}
+.mp-4 .mp-char-info ul li b {
+  color: var(--admin);
+}
+
+.mp-13 img {
+  box-shadow: 8px 8px var(--mod);
+}
+.mp-13 .mp-name {
+  text-shadow: 3px 3px var(--mod);
+}
+.mp-13 .mp-toggle-button {
+  background-color: var(--mod);
+}
+.mp-13 .mp-char-info ul li b {
+  color: var(--mod);
+}
+
+.mp-2 img {
+  box-shadow: 8px 8px var(--guest);
+}
+.mp-2 .mp-name {
+  text-shadow: 3px 3px var(--guest);
+}
+.mp-2 .mp-toggle-button {
+  background-color: var(--guest);
+}
+.mp-2 .mp-char-info ul li b {
+  color: var(--guest);
+}
+
+.mp-5 img {
+  box-shadow: 8px 8px var(--guest);
+}
+.mp-5 .mp-name {
+  text-shadow: 3px 3px var(--guest);
+}
+.mp-5 .mp-toggle-button {
+  background-color: var(--guest);
+}
+.mp-5 .mp-char-info ul li b {
+  color: var(--guest);
+}
+
+.mp-14 img {
+  box-shadow: 8px 8px var(--guest);
+}
+.mp-14 .mp-name {
+  text-shadow: 3px 3px var(--guest);
+}
+.mp-14 .mp-toggle-button {
+  background-color: var(--guest);
+}
+.mp-14 .mp-char-info ul li b {
+  color: var(--guest);
+}
+
+.mp-3 img {
+  box-shadow: 8px 8px var(--guest);
+}
+.mp-3 .mp-name {
+  text-shadow: 3px 3px var(--guest);
+}
+.mp-3 .mp-toggle-button {
+  background-color: var(--guest);
+}
+.mp-3 .mp-char-info ul li b {
+  color: var(--guest);
+}
+
+.mp-10 img {
+  box-shadow: 8px 8px var(--guest);
+}
+.mp-10 .mp-name {
+  text-shadow: 3px 3px var(--guest);
+}
+.mp-10 .mp-toggle-button {
+  background-color: var(--guest);
+}
+.mp-10 .mp-char-info ul li b {
+  color: var(--guest);
+}
+
+.mp-15 img {
+  box-shadow: 8px 8px var(--guest);
+}
+.mp-15 .mp-name {
+  text-shadow: 3px 3px var(--guest);
+}
+.mp-15 .mp-toggle-button {
+  background-color: var(--guest);
+}
+.mp-15 .mp-char-info ul li b {
+  color: var(--guest);
 }
 
 .mini-prof-bottom {
@@ -206,6 +380,7 @@ html[data-theme=light] {
 .post-content hr {
   width: 50%;
   margin: auto;
+  color: var(--text-color);
 }
 .post-content .trigger-warning {
   font-family: Rasputin, serif;
@@ -226,6 +401,539 @@ html[data-theme=light] {
 }
 
 /* Set the colors for the post row styling to match the user's group color. */
+.date-buttons-1 {
+  background-color: var(--strat);
+}
+.date-buttons-1 a {
+  color: var(--text-color);
+}
+
+.post-content-1 img {
+  box-shadow: -8px 8px var(--strat);
+}
+.post-content-1 .hover-img-player-info .ooc-info {
+  border-left: solid 4px var(--strat);
+}
+.post-content-1 .hover-img-player-info .ooc-info b {
+  color: var(--strat);
+}
+.post-content-1 .post-content h2, .post-content-1 .post-content h3, .post-content-1 .post-content h4, .post-content-1 .post-content h6, .post-content-1 .post-content h8 {
+  text-decoration-color: var(--strat);
+}
+.post-content-1 .post-content b, .post-content-1 .post-content i, .post-content-1 .post-content a {
+  color: var(--strat);
+}
+.post-content-1 .post-content blockquote {
+  border-left: var(--strat) solid 1px;
+}
+.post-content-1 .post-content .trigger-warning i {
+  color: var(--strat);
+}
+.post-content-1 .post-content .simple-post, .post-content-1 .post-content .sip-img {
+  box-shadow: 6px 6px var(--strat);
+}
+.post-content-1 .post-content .banner-img {
+  box-shadow: 6px -6px var(--strat);
+}
+.post-content-1 .post-content .font-icon-post div {
+  border-left: var(--strat) solid 1px;
+}
+.post-content-1 .post-content .font-icon-post .fi-post-icon {
+  color: var(--strat);
+}
+
+.date-buttons-6 {
+  background-color: var(--thia);
+}
+.date-buttons-6 a {
+  color: var(--text-color);
+}
+
+.post-content-6 img {
+  box-shadow: -8px 8px var(--thia);
+}
+.post-content-6 .hover-img-player-info .ooc-info {
+  border-left: solid 4px var(--thia);
+}
+.post-content-6 .hover-img-player-info .ooc-info b {
+  color: var(--thia);
+}
+.post-content-6 .post-content h2, .post-content-6 .post-content h3, .post-content-6 .post-content h4, .post-content-6 .post-content h6, .post-content-6 .post-content h8 {
+  text-decoration-color: var(--thia);
+}
+.post-content-6 .post-content b, .post-content-6 .post-content i, .post-content-6 .post-content a {
+  color: var(--thia);
+}
+.post-content-6 .post-content blockquote {
+  border-left: var(--thia) solid 1px;
+}
+.post-content-6 .post-content .trigger-warning i {
+  color: var(--thia);
+}
+.post-content-6 .post-content .simple-post, .post-content-6 .post-content .sip-img {
+  box-shadow: 6px 6px var(--thia);
+}
+.post-content-6 .post-content .banner-img {
+  box-shadow: 6px -6px var(--thia);
+}
+.post-content-6 .post-content .font-icon-post div {
+  border-left: var(--thia) solid 1px;
+}
+.post-content-6 .post-content .font-icon-post .fi-post-icon {
+  color: var(--thia);
+}
+
+.date-buttons-7 {
+  background-color: var(--kris);
+}
+.date-buttons-7 a {
+  color: var(--text-color);
+}
+
+.post-content-7 img {
+  box-shadow: -8px 8px var(--kris);
+}
+.post-content-7 .hover-img-player-info .ooc-info {
+  border-left: solid 4px var(--kris);
+}
+.post-content-7 .hover-img-player-info .ooc-info b {
+  color: var(--kris);
+}
+.post-content-7 .post-content h2, .post-content-7 .post-content h3, .post-content-7 .post-content h4, .post-content-7 .post-content h6, .post-content-7 .post-content h8 {
+  text-decoration-color: var(--kris);
+}
+.post-content-7 .post-content b, .post-content-7 .post-content i, .post-content-7 .post-content a {
+  color: var(--kris);
+}
+.post-content-7 .post-content blockquote {
+  border-left: var(--kris) solid 1px;
+}
+.post-content-7 .post-content .trigger-warning i {
+  color: var(--kris);
+}
+.post-content-7 .post-content .simple-post, .post-content-7 .post-content .sip-img {
+  box-shadow: 6px 6px var(--kris);
+}
+.post-content-7 .post-content .banner-img {
+  box-shadow: 6px -6px var(--kris);
+}
+.post-content-7 .post-content .font-icon-post div {
+  border-left: var(--kris) solid 1px;
+}
+.post-content-7 .post-content .font-icon-post .fi-post-icon {
+  color: var(--kris);
+}
+
+.date-buttons-8 {
+  background-color: var(--mnem);
+}
+.date-buttons-8 a {
+  color: var(--text-color);
+}
+
+.post-content-8 img {
+  box-shadow: -8px 8px var(--mnem);
+}
+.post-content-8 .hover-img-player-info .ooc-info {
+  border-left: solid 4px var(--mnem);
+}
+.post-content-8 .hover-img-player-info .ooc-info b {
+  color: var(--mnem);
+}
+.post-content-8 .post-content h2, .post-content-8 .post-content h3, .post-content-8 .post-content h4, .post-content-8 .post-content h6, .post-content-8 .post-content h8 {
+  text-decoration-color: var(--mnem);
+}
+.post-content-8 .post-content b, .post-content-8 .post-content i, .post-content-8 .post-content a {
+  color: var(--mnem);
+}
+.post-content-8 .post-content blockquote {
+  border-left: var(--mnem) solid 1px;
+}
+.post-content-8 .post-content .trigger-warning i {
+  color: var(--mnem);
+}
+.post-content-8 .post-content .simple-post, .post-content-8 .post-content .sip-img {
+  box-shadow: 6px 6px var(--mnem);
+}
+.post-content-8 .post-content .banner-img {
+  box-shadow: 6px -6px var(--mnem);
+}
+.post-content-8 .post-content .font-icon-post div {
+  border-left: var(--mnem) solid 1px;
+}
+.post-content-8 .post-content .font-icon-post .fi-post-icon {
+  color: var(--mnem);
+}
+
+.date-buttons-9 {
+  background-color: var(--soph);
+}
+.date-buttons-9 a {
+  color: var(--text-color);
+}
+
+.post-content-9 img {
+  box-shadow: -8px 8px var(--soph);
+}
+.post-content-9 .hover-img-player-info .ooc-info {
+  border-left: solid 4px var(--soph);
+}
+.post-content-9 .hover-img-player-info .ooc-info b {
+  color: var(--soph);
+}
+.post-content-9 .post-content h2, .post-content-9 .post-content h3, .post-content-9 .post-content h4, .post-content-9 .post-content h6, .post-content-9 .post-content h8 {
+  text-decoration-color: var(--soph);
+}
+.post-content-9 .post-content b, .post-content-9 .post-content i, .post-content-9 .post-content a {
+  color: var(--soph);
+}
+.post-content-9 .post-content blockquote {
+  border-left: var(--soph) solid 1px;
+}
+.post-content-9 .post-content .trigger-warning i {
+  color: var(--soph);
+}
+.post-content-9 .post-content .simple-post, .post-content-9 .post-content .sip-img {
+  box-shadow: 6px 6px var(--soph);
+}
+.post-content-9 .post-content .banner-img {
+  box-shadow: 6px -6px var(--soph);
+}
+.post-content-9 .post-content .font-icon-post div {
+  border-left: var(--soph) solid 1px;
+}
+.post-content-9 .post-content .font-icon-post .fi-post-icon {
+  color: var(--soph);
+}
+
+.date-buttons-4 {
+  background-color: var(--admin);
+}
+.date-buttons-4 a {
+  color: var(--text-color);
+}
+
+.post-content-4 img {
+  box-shadow: -8px 8px var(--admin);
+}
+.post-content-4 .hover-img-player-info .ooc-info {
+  border-left: solid 4px var(--admin);
+}
+.post-content-4 .hover-img-player-info .ooc-info b {
+  color: var(--admin);
+}
+.post-content-4 .post-content h2, .post-content-4 .post-content h3, .post-content-4 .post-content h4, .post-content-4 .post-content h6, .post-content-4 .post-content h8 {
+  text-decoration-color: var(--admin);
+}
+.post-content-4 .post-content b, .post-content-4 .post-content i, .post-content-4 .post-content a {
+  color: var(--admin);
+}
+.post-content-4 .post-content blockquote {
+  border-left: var(--admin) solid 1px;
+}
+.post-content-4 .post-content .trigger-warning i {
+  color: var(--admin);
+}
+.post-content-4 .post-content .simple-post, .post-content-4 .post-content .sip-img {
+  box-shadow: 6px 6px var(--admin);
+}
+.post-content-4 .post-content .banner-img {
+  box-shadow: 6px -6px var(--admin);
+}
+.post-content-4 .post-content .font-icon-post div {
+  border-left: var(--admin) solid 1px;
+}
+.post-content-4 .post-content .font-icon-post .fi-post-icon {
+  color: var(--admin);
+}
+
+.date-buttons-13 {
+  background-color: var(--mod);
+}
+.date-buttons-13 a {
+  color: var(--text-color);
+}
+
+.post-content-13 img {
+  box-shadow: -8px 8px var(--mod);
+}
+.post-content-13 .hover-img-player-info .ooc-info {
+  border-left: solid 4px var(--mod);
+}
+.post-content-13 .hover-img-player-info .ooc-info b {
+  color: var(--mod);
+}
+.post-content-13 .post-content h2, .post-content-13 .post-content h3, .post-content-13 .post-content h4, .post-content-13 .post-content h6, .post-content-13 .post-content h8 {
+  text-decoration-color: var(--mod);
+}
+.post-content-13 .post-content b, .post-content-13 .post-content i, .post-content-13 .post-content a {
+  color: var(--mod);
+}
+.post-content-13 .post-content blockquote {
+  border-left: var(--mod) solid 1px;
+}
+.post-content-13 .post-content .trigger-warning i {
+  color: var(--mod);
+}
+.post-content-13 .post-content .simple-post, .post-content-13 .post-content .sip-img {
+  box-shadow: 6px 6px var(--mod);
+}
+.post-content-13 .post-content .banner-img {
+  box-shadow: 6px -6px var(--mod);
+}
+.post-content-13 .post-content .font-icon-post div {
+  border-left: var(--mod) solid 1px;
+}
+.post-content-13 .post-content .font-icon-post .fi-post-icon {
+  color: var(--mod);
+}
+
+.date-buttons-2 {
+  background-color: var(--guest);
+}
+.date-buttons-2 a {
+  color: var(--text-color);
+}
+
+.post-content-2 img {
+  box-shadow: -8px 8px var(--guest);
+}
+.post-content-2 .hover-img-player-info .ooc-info {
+  border-left: solid 4px var(--guest);
+}
+.post-content-2 .hover-img-player-info .ooc-info b {
+  color: var(--guest);
+}
+.post-content-2 .post-content h2, .post-content-2 .post-content h3, .post-content-2 .post-content h4, .post-content-2 .post-content h6, .post-content-2 .post-content h8 {
+  text-decoration-color: var(--guest);
+}
+.post-content-2 .post-content b, .post-content-2 .post-content i, .post-content-2 .post-content a {
+  color: var(--guest);
+}
+.post-content-2 .post-content blockquote {
+  border-left: var(--guest) solid 1px;
+}
+.post-content-2 .post-content .trigger-warning i {
+  color: var(--guest);
+}
+.post-content-2 .post-content .simple-post, .post-content-2 .post-content .sip-img {
+  box-shadow: 6px 6px var(--guest);
+}
+.post-content-2 .post-content .banner-img {
+  box-shadow: 6px -6px var(--guest);
+}
+.post-content-2 .post-content .font-icon-post div {
+  border-left: var(--guest) solid 1px;
+}
+.post-content-2 .post-content .font-icon-post .fi-post-icon {
+  color: var(--guest);
+}
+
+.date-buttons-5 {
+  background-color: var(--guest);
+}
+.date-buttons-5 a {
+  color: var(--text-color);
+}
+
+.post-content-5 img {
+  box-shadow: -8px 8px var(--guest);
+}
+.post-content-5 .hover-img-player-info .ooc-info {
+  border-left: solid 4px var(--guest);
+}
+.post-content-5 .hover-img-player-info .ooc-info b {
+  color: var(--guest);
+}
+.post-content-5 .post-content h2, .post-content-5 .post-content h3, .post-content-5 .post-content h4, .post-content-5 .post-content h6, .post-content-5 .post-content h8 {
+  text-decoration-color: var(--guest);
+}
+.post-content-5 .post-content b, .post-content-5 .post-content i, .post-content-5 .post-content a {
+  color: var(--guest);
+}
+.post-content-5 .post-content blockquote {
+  border-left: var(--guest) solid 1px;
+}
+.post-content-5 .post-content .trigger-warning i {
+  color: var(--guest);
+}
+.post-content-5 .post-content .simple-post, .post-content-5 .post-content .sip-img {
+  box-shadow: 6px 6px var(--guest);
+}
+.post-content-5 .post-content .banner-img {
+  box-shadow: 6px -6px var(--guest);
+}
+.post-content-5 .post-content .font-icon-post div {
+  border-left: var(--guest) solid 1px;
+}
+.post-content-5 .post-content .font-icon-post .fi-post-icon {
+  color: var(--guest);
+}
+
+.date-buttons-14 {
+  background-color: var(--guest);
+}
+.date-buttons-14 a {
+  color: var(--text-color);
+}
+
+.post-content-14 img {
+  box-shadow: -8px 8px var(--guest);
+}
+.post-content-14 .hover-img-player-info .ooc-info {
+  border-left: solid 4px var(--guest);
+}
+.post-content-14 .hover-img-player-info .ooc-info b {
+  color: var(--guest);
+}
+.post-content-14 .post-content h2, .post-content-14 .post-content h3, .post-content-14 .post-content h4, .post-content-14 .post-content h6, .post-content-14 .post-content h8 {
+  text-decoration-color: var(--guest);
+}
+.post-content-14 .post-content b, .post-content-14 .post-content i, .post-content-14 .post-content a {
+  color: var(--guest);
+}
+.post-content-14 .post-content blockquote {
+  border-left: var(--guest) solid 1px;
+}
+.post-content-14 .post-content .trigger-warning i {
+  color: var(--guest);
+}
+.post-content-14 .post-content .simple-post, .post-content-14 .post-content .sip-img {
+  box-shadow: 6px 6px var(--guest);
+}
+.post-content-14 .post-content .banner-img {
+  box-shadow: 6px -6px var(--guest);
+}
+.post-content-14 .post-content .font-icon-post div {
+  border-left: var(--guest) solid 1px;
+}
+.post-content-14 .post-content .font-icon-post .fi-post-icon {
+  color: var(--guest);
+}
+
+.date-buttons-3 {
+  background-color: var(--guest);
+}
+.date-buttons-3 a {
+  color: var(--text-color);
+}
+
+.post-content-3 img {
+  box-shadow: -8px 8px var(--guest);
+}
+.post-content-3 .hover-img-player-info .ooc-info {
+  border-left: solid 4px var(--guest);
+}
+.post-content-3 .hover-img-player-info .ooc-info b {
+  color: var(--guest);
+}
+.post-content-3 .post-content h2, .post-content-3 .post-content h3, .post-content-3 .post-content h4, .post-content-3 .post-content h6, .post-content-3 .post-content h8 {
+  text-decoration-color: var(--guest);
+}
+.post-content-3 .post-content b, .post-content-3 .post-content i, .post-content-3 .post-content a {
+  color: var(--guest);
+}
+.post-content-3 .post-content blockquote {
+  border-left: var(--guest) solid 1px;
+}
+.post-content-3 .post-content .trigger-warning i {
+  color: var(--guest);
+}
+.post-content-3 .post-content .simple-post, .post-content-3 .post-content .sip-img {
+  box-shadow: 6px 6px var(--guest);
+}
+.post-content-3 .post-content .banner-img {
+  box-shadow: 6px -6px var(--guest);
+}
+.post-content-3 .post-content .font-icon-post div {
+  border-left: var(--guest) solid 1px;
+}
+.post-content-3 .post-content .font-icon-post .fi-post-icon {
+  color: var(--guest);
+}
+
+.date-buttons-10 {
+  background-color: var(--guest);
+}
+.date-buttons-10 a {
+  color: var(--text-color);
+}
+
+.post-content-10 img {
+  box-shadow: -8px 8px var(--guest);
+}
+.post-content-10 .hover-img-player-info .ooc-info {
+  border-left: solid 4px var(--guest);
+}
+.post-content-10 .hover-img-player-info .ooc-info b {
+  color: var(--guest);
+}
+.post-content-10 .post-content h2, .post-content-10 .post-content h3, .post-content-10 .post-content h4, .post-content-10 .post-content h6, .post-content-10 .post-content h8 {
+  text-decoration-color: var(--guest);
+}
+.post-content-10 .post-content b, .post-content-10 .post-content i, .post-content-10 .post-content a {
+  color: var(--guest);
+}
+.post-content-10 .post-content blockquote {
+  border-left: var(--guest) solid 1px;
+}
+.post-content-10 .post-content .trigger-warning i {
+  color: var(--guest);
+}
+.post-content-10 .post-content .simple-post, .post-content-10 .post-content .sip-img {
+  box-shadow: 6px 6px var(--guest);
+}
+.post-content-10 .post-content .banner-img {
+  box-shadow: 6px -6px var(--guest);
+}
+.post-content-10 .post-content .font-icon-post div {
+  border-left: var(--guest) solid 1px;
+}
+.post-content-10 .post-content .font-icon-post .fi-post-icon {
+  color: var(--guest);
+}
+
+.date-buttons-15 {
+  background-color: var(--guest);
+}
+.date-buttons-15 a {
+  color: var(--text-color);
+}
+
+.post-content-15 img {
+  box-shadow: -8px 8px var(--guest);
+}
+.post-content-15 .hover-img-player-info .ooc-info {
+  border-left: solid 4px var(--guest);
+}
+.post-content-15 .hover-img-player-info .ooc-info b {
+  color: var(--guest);
+}
+.post-content-15 .post-content h2, .post-content-15 .post-content h3, .post-content-15 .post-content h4, .post-content-15 .post-content h6, .post-content-15 .post-content h8 {
+  text-decoration-color: var(--guest);
+}
+.post-content-15 .post-content b, .post-content-15 .post-content i, .post-content-15 .post-content a {
+  color: var(--guest);
+}
+.post-content-15 .post-content blockquote {
+  border-left: var(--guest) solid 1px;
+}
+.post-content-15 .post-content .trigger-warning i {
+  color: var(--guest);
+}
+.post-content-15 .post-content .simple-post, .post-content-15 .post-content .sip-img {
+  box-shadow: 6px 6px var(--guest);
+}
+.post-content-15 .post-content .banner-img {
+  box-shadow: 6px -6px var(--guest);
+}
+.post-content-15 .post-content .font-icon-post div {
+  border-left: var(--guest) solid 1px;
+}
+.post-content-15 .post-content .font-icon-post .fi-post-icon {
+  color: var(--guest);
+}
+
 .wide-post, .simple-post, .basic-post, .sm-icon-post, .banner-post, .font-icon-post {
   background-color: var(--palette1);
   padding: 24px 32px;

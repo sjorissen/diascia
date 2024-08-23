@@ -387,26 +387,19 @@ div[id*=forum-] a {
   margin: 8px 0;
 }
 
-/* Hide jcink's pagination setup */
-.pagination {
-  display: none;
-}
-
-/* Ribbon above & below topic list that displays number of pages & New Topic/Poll buttons */
-.topic-btn-background {
-  background-color: var(--palette3);
-  padding: 4px 16px;
+/* Styling for individual topics' page & topic option buttons above & below posts. */
+.topic-buttons-row {
   display: flex;
   justify-content: space-between;
-  align-content: center;
-}
-.topic-btn-background #topic-pages-top, .topic-btn-background #topic-pages-bottom, .topic-btn-background .topic-pages {
-  display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  gap: 4px;
+  padding: 8px 16px;
+  background-color: var(--palette3);
+  /* Hide "Pages" text & number, leaving only links for pages. */
 }
-.topic-btn-background .pagination_page {
+.topic-buttons-row .pagination_pagetxt {
+  display: none;
+}
+.topic-buttons-row .pagination_page {
   font-family: Rasputin, serif;
   background-color: var(--palette2);
   border: var(--palette2) 2px solid;
@@ -415,20 +408,32 @@ div[id*=forum-] a {
   padding: 4px;
   text-align: center;
 }
-.topic-btn-background .current-page {
+.topic-buttons-row .pagination_current {
   background-color: var(--palette3);
   border: var(--palette2) 2px solid;
   color: var(--palette2);
+  padding: 4px;
 }
-.topic-btn-background .topic-buttons {
+.topic-buttons-row .button-large {
+  border: none;
+  background-color: var(--palette2);
+}
+.topic-buttons-row .goto-firstunread {
+  color: var(--palette4);
+}
+.topic-buttons-row .goto-firstunread a {
+  color: var(--palette4);
+}
+.topic-buttons-row td {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  gap: 8px;
 }
-.topic-btn-background .button-large {
-  font-family: Rasputin, serif;
-  margin: 4px;
-  padding: 8px;
+
+.topic-buttons-layout {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  gap: 8px;
 }
 
 .topic-header {
@@ -442,6 +447,42 @@ div[id*=forum-] a {
   gap: 8px;
 }
 
+/* Styling for buttons for topics list pages. */
+tr:has(.pagination) {
+  background-color: var(--palette3);
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+tr:has(.pagination) td {
+  display: flex;
+  gap: 8px;
+}
+tr:has(.pagination) .pagination_pagetxt {
+  display: none;
+}
+tr:has(.pagination) .pagination_page {
+  font-family: Rasputin, serif;
+  background-color: var(--palette2);
+  border: var(--palette2) 2px solid;
+  color: var(--palette4);
+  width: 16px;
+  padding: 4px;
+  text-align: center;
+}
+tr:has(.pagination) .pagination_current {
+  background-color: var(--palette3);
+  border: var(--palette2) 2px solid;
+  color: var(--palette2);
+  padding: 4px;
+}
+tr:has(.pagination) .button-large {
+  border: none;
+  background-color: var(--palette2);
+}
+
+/* Styling for topics displayed in topics list. */
 div[id*=topic-]:not(#topic-options) {
   background-color: var(--palette2);
   width: calc(50% - 36px);
@@ -1891,28 +1932,6 @@ nav a .fa-kit, nav li .fa-kit {
   width: fit-content;
   padding: 8px;
   font-weight: bold;
-}
-
-.topic-buttons-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-}
-.topic-buttons-row .button-large {
-  display: none;
-}
-
-.topic-buttons-layout {
-  display: flex;
-  justify-content: flex-end;
-  align-self: flex-end;
-}
-
-.goto-firstunread {
-  color: var(--palette4);
-}
-.goto-firstunread a {
-  color: var(--palette2);
 }
 
 #topic_open {

@@ -26,6 +26,7 @@
 
   .post-content {
     padding: 32px;
+    background-color: var(--background-color);
   }
 
   .hover-img-player-info {
@@ -90,10 +91,10 @@
     margin: 0;
     font-size: 3rem;
     font-weight: bold;
-    //color: $white;
+    color: var(--text-color);
 
     span {
-      //color: $white;
+      color: var(--text-color);
       font-size: 3rem;
       font-weight: bold;
     }
@@ -107,7 +108,7 @@
     width: 400px;
     font-family: Rasputin, serif;
     text-align: right;
-    //background-color: $dark-blue;
+    background-color: var(--palette2);
     padding-left: 16px;
 
     .mp-flavor-text {
@@ -134,7 +135,7 @@
         b {
           font-family: Rasputin, serif;
           font-size: 16px;
-          //color: $thia-dark;
+          color: var(--thia);
           text-transform: uppercase;
         }
       }
@@ -183,6 +184,20 @@
   }
 }
 
+@include mp-colors(1, var(--strat));
+@include mp-colors(6, var(--thia));
+@include mp-colors(7, var(--kris));
+@include mp-colors(8, var(--mnem));
+@include mp-colors(9, var(--soph));
+@include mp-colors(4, var(--admin));
+@include mp-colors(13, var(--mod));
+@include mp-colors(2, var(--guest));
+@include mp-colors(5, var(--guest));
+@include mp-colors(14, var(--guest));
+@include mp-colors(3, var(--guest));
+@include mp-colors(10, var(--guest));
+@include mp-colors(15, var(--guest));
+
 .mini-prof-bottom {
   display: flex;
   justify-content: space-evenly;
@@ -228,7 +243,7 @@
   hr {
     width: 50%;
     margin: auto;
-    //color: $white;
+    color: var(--text-color);
   }
 
   .trigger-warning {
@@ -313,6 +328,20 @@
     }
   }
 }
+
+@include post-row-colors(1, var(--strat));
+@include post-row-colors(6, var(--thia));
+@include post-row-colors(7, var(--kris));
+@include post-row-colors(8, var(--mnem));
+@include post-row-colors(9, var(--soph));
+@include post-row-colors(4, var(--admin));
+@include post-row-colors(13, var(--mod));
+@include post-row-colors(2, var(--guest));
+@include post-row-colors(5, var(--guest));
+@include post-row-colors(14, var(--guest));
+@include post-row-colors(3, var(--guest));
+@include post-row-colors(10, var(--guest));
+@include post-row-colors(15, var(--guest));
 
 .wide-post, .simple-post, .basic-post, .sm-icon-post, .banner-post, .font-icon-post {
   background-color: var(--palette1);

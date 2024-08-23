@@ -847,30 +847,6 @@ nav {
   font-weight: bold;
 }
 
-.topic-buttons-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-
-  .button-large {
-    display: none;
-  }
-}
-
-.topic-buttons-layout {
-  display: flex;
-  justify-content: flex-end;
-  align-self: flex-end;
-}
-
-.goto-firstunread {
-  color: var(--palette4);
-
-  a {
-    color: var(--palette2);
-  }
-}
-
 #topic_open {
   background-color: var(--palette2);
 
