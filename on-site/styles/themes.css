@@ -1,4 +1,6 @@
 html[data-theme=dark] {
+  --banner-img: url(https://files.jcink.net/uploads2/astonish/skin_diascia/spring.png);
+  --banner-gradient: #F25C68;
   --background-color: #192028;
   --text-color: #d9dbe5;
   --link-color: #81A8DF;
@@ -23,11 +25,70 @@ html[data-theme=dark] {
   --mod: #cf687b;
   --guest: #344662;
   /* pokemon type colors */
+  --normal: #464d53;
+  --grass: #3b7e35;
+  --bug: #506c19;
+  --electric: #846e10;
+  --poison: #773795;
+  --ghost: #323f67;
+  --dark: #28252d;
+  --water: #245e99;
+  --psychic: #c34145;
+  --ice: #39a292;
+  --steel: #35545f;
+  --fire: #eb6200;
+  --fighting: #86233f;
+  --rock: #9e884c;
+  --ground: #8a4d2e;
+  --flying: #3156a5;
+  --fairy: #a937a2;
+  --dragon: #053661;
 }
 
 html[data-theme=light] {
-  --background-color: #EDDBB7;
+  --banner-img: url(https://files.jcink.net/uploads2/astonish/skin_diascia/leafeon.png);
+  --banner-gradient: #F27405;
+  --background-color: #FFE8BA;
   --text-color: #1f1d1c;
+  --link-color: #F27405;
+  --nav-text: #4a4038;
+  --text-shadow: #FAF2D4;
+  --older-news: #8c6d55;
+  --primary: #F27405;
+  --secondary: #4F663F;
+  --palette1: #FFDE9E;
+  --palette2: #FFEEB0;
+  --palette3: #ffbc74;
+  --palette4: #F27405;
+  --palette5: #F25C05;
+  /*user groups */
+  --strat: #cb7848;
+  --thia: #a668c4;
+  --kris: #84993d;
+  --mnem: #49a0b6;
+  --soph: #ac8026;
+  --admin: #8585dd;
+  --mod: #e7516d;
+  --guest: #F2A057;
+  /* pokemon type colors */
+  --normal: #A8A878;
+  --grass: #78C850;
+  --bug: #A8B820;
+  --electric: #F8D030;
+  --poison: #A040A0;
+  --ghost: #705898;
+  --dark: #705848;
+  --water: #6890F0;
+  --psychic: #F85888;
+  --ice: #98D8D8;
+  --steel: #B8B8D0;
+  --fire: #F08030;
+  --fighting: #C03028;
+  --rock: #B8A038;
+  --ground: #E0C068;
+  --flying: #A890F0;
+  --fairy: #F0B6BC;
+  --dragon: #7038F8;
 }
 
 /*# sourceMappingURL=themes.css.map */

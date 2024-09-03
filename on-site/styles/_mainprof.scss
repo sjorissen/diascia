@@ -420,8 +420,8 @@
   margin: 8px 24px;
 }
 
-// Main profile
-// change colors based on member group
+/* Main profile
+ change colors based on member group */
 #group-strategos {
   @include main-profile-colors(var(--strat));
 }

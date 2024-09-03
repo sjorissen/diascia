@@ -72,7 +72,6 @@
 
 /* Styling for character's mini-profile that appears above each of their posts. */
 .mini-prof-top {
-//.mini-prof {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -403,7 +402,6 @@
 
 #CODE-WRAP {
   background-color: var(--palette2);
-  box-shadow: var(--palette3) 8px 8px;
   margin: auto;
 }
 
@@ -499,10 +497,6 @@
         background-color: var(--palette2);
       }
     }
-
-    //.active {
-    //  background-color: $dark-blue;
-    //}
   }
 
   .plotter-char-body {
@@ -545,7 +539,7 @@
       line-height: 1.4rem;
 
       b {
-        color: white;
+        color: var(--text-color);
         font-size: 1.2rem;
       }
     }

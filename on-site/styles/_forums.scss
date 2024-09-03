@@ -87,16 +87,14 @@ div[id*="forum-"] {
   }
 }
 
-// Styling for The Pokemon Handbook
+/* Styling for The Pokemon Handbook */
 #forum-1 {
   flex-basis: 100%;
   display: flex;
   align-items: flex-start;
-  //padding: 40px;
 
   .handbook-title a {
     font-family: Jemina, serif;
-    //font-size: 135px;
     font-size: 7rem;
     font-weight: bold;
     line-height: 7rem;
@@ -236,7 +234,7 @@ div[id*="forum-"] {
   width: 40%;
 }
 
-// Subregion display toggle
+/* Subregion display toggle */
 .subregions-toggle {
   display: flex;
   justify-content: center;
@@ -249,7 +247,6 @@ div[id*="forum-"] {
     font-family: Jemina, serif;
     font-size: 2.5rem;
     font-weight: bold;
-    //margin: 0 30px;
   }
 }
 

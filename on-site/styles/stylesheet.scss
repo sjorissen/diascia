@@ -1,11 +1,8 @@
 @use "colors";
 @use "text";
-//@use "postrow";
-//@use "mainprof";
 @use "forums";
 @use "topics";
 @use "memberlist";
-//@use "guidebook";
 @use "boardstats";
 
 * {
@@ -13,9 +10,13 @@
   padding: 0;
 }
 
-// Hide BOARD HEADER stuff
+/* Hide BOARD HEADER stuff */
 #userlinks, #submenu, #logostrip, .roster-quicklinks, .capital-desc #important-pinned {
   display: none;
+}
+
+html {
+  scrollbar-color: var(--palette3) transparent;
 }
 
 body {
@@ -24,8 +25,6 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: Roboto, sans-serif;
-
-  scrollbar-color: var(--palette3) transparent;
 
   a {
     color: var(--link-color);
@@ -54,7 +53,7 @@ select, input {
   border: var(--palette3) mid-blue solid 1px;
 }
 
-// Nav bar at the very top of the page, above the banner
+/* Nav bar at the very top of the page, above the banner */
 nav {
   display: flex;
   justify-content: space-between;
@@ -133,11 +132,6 @@ nav {
   color: var(--palette4);
 }
 
-
-//div.hidden {
-//  display: none;
-//}
-
 .acct-list-outer {
   height: 100vh;
   width: 100vw;
@@ -150,27 +144,12 @@ nav {
 }
 
 .sub-accounts-container {
-  //background: $dark-blue;
-  //position: absolute;
-  //z-index: 1;
   transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
-  //transform: translateY(0.5rem);
-  //visibility: hidden;
-  //opacity: 0;
-  //margin-top: 29px
   margin: auto;
   width: 1150px;
 }
 
-//.sub-accounts-mobile {
-//  transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
-//  margin: auto;
-//  width: 100%;
-//}
-
 .sub-accounts-list {
-  //margin: 0 16px 16px 0;
-  //padding: 16px 16px 0 0;
   padding: 16px;
   color: var(--palette5);
   font-family: Rasputin, serif;
@@ -187,21 +166,20 @@ nav {
 }
 
 .show-acct-list {
-  //transform: translateY(0rem);
   visibility: visible;
   opacity: 1;
   pointer-events: all;
 }
 
-// Fancy banner at the top of the page
+/* Fancy banner at the top of the page */
 .banner {
-  background: no-repeat 90% 80%/500px url(https://files.jcink.net/uploads2/astonish/skin_diascia/spring.png), radial-gradient(circle 25rem at 70% 90%, var(--secondary), transparent);
+  background: no-repeat 90% 80%/500px var(--banner-img), radial-gradient(circle 25rem at 70% 90%, var(--banner-gradient), transparent);
   height: 500px;
   font-family: Jemina, serif;
   color: var(--secondary);
   position: relative;
   text-align: center;
-  text-shadow: var(--text-shadow) 2px 2px 5px;
+  text-shadow: var(--text-shadow) 2px 2px 3px;
 
   h1 {
     color: var(--secondary);
@@ -229,7 +207,7 @@ nav {
   display: none;
 }
 
-// List of links within the banner to various parts of the site
+/* List of links within the banner to various parts of the site */
 .quick-links {
   border-top: var(--nav-text) solid 2px;
   border-bottom: var(--nav-text) solid 2px;
@@ -254,7 +232,7 @@ nav {
   }
 }
 
-// Styling & layout helpers
+/* Styling & layout helpers */
 %header-info-styling {
   background-color: var(--palette3);
   margin-bottom: 16px;
@@ -278,8 +256,8 @@ nav {
   flex-flow: column;
 }
 
-// Header below banner
-// Welcome message and latest news
+/* Header below banner
+Welcome message and latest news */
 .header-background {
   background-color: var(--palette3);
   margin-bottom: 24px;
@@ -296,7 +274,6 @@ nav {
   .welcome {
     padding: 8px 16px 8px 16px;
     text-align: justify;
-    //border-right: $black-25 solid 2px;
     border-right: var(--nav-text) solid 2px;
   }
 
@@ -304,7 +281,7 @@ nav {
     font-family: Rasputin, serif;
     font-weight: bold;
     text-transform: uppercase;
-    color: var(--palette4);
+    color: var(--palette5);
 
     #wb-1 {
       color: var(--strat);
@@ -365,12 +342,12 @@ nav {
 }
 
 
-// Hide "you last visited..." text
+/* Hide "you last visited..." text */
 .newstext {
   display: none;
 }
 
-// Background for forum area below all the header stuff
+/* Background for forum area below all the header stuff */
 .forums-background {
   background-color: var(--palette1);
   width: 100%;
@@ -378,10 +355,10 @@ nav {
   flex-direction: column;
 }
 
-// Current forum & its path
+/* Current forum & its path */
 #navstrip {
   background-color: var(--palette2);
-  margin-bottom: -38px;
+  margin-bottom: -46px;
   border-radius: 8px 8px 0 0;
   font-family: Rasputin, serif;
   font-size: 24px;
@@ -409,40 +386,6 @@ nav {
   display: none;
 }
 
-//// Main profile
-//// change colors based on member group
-//#group-strategos {
-//  @include mainprof.main-profile-colors(var(--strat));
-//}
-//
-//#group-thiarchos {
-//  @include mainprof.main-profile-colors(var(--thia));
-//}
-//
-//#group-mnemntia {
-//  @include mainprof.main-profile-colors(var(--mnem));
-//}
-//
-//#group-krisigos {
-//  @include mainprof.main-profile-colors(var(--kris));
-//}
-//
-//#group-sophist {
-//  @include mainprof.main-profile-colors(var(--soph));
-//}
-//
-//#group-validating, #group-Nereid, #group-inactive {
-//  @include mainprof.main-profile-colors(var(--guest));
-//}
-//
-//#group-Admin {
-//  @include mainprof.main-profile-colors(var(--admin));
-//}
-//
-//#group-Mod {
-//  @include mainprof.main-profile-colors(var(--mod));
-//}
-
 .pkmn-type, .family-blood .type {
   font-family: Pixel, sans-serif;
   font-size: 24px;
@@ -457,383 +400,76 @@ nav {
 }
 
 .normal-type, .family-blood .t-normal {
-  background-color: #464d53;
+  background-color: var(--normal);
 }
 
 .grass-type, .family-blood .t-grass {
-  background-color: #3b7e35;
+  background-color: var(--grass);
 }
 
 .bug-type, .family-blood .t-bug {
-  background-color: #506c19;
+  background-color: var(--bug);
 }
 
 .electric-type, .family-blood .t-electric {
-  background-color: #846e10;
+  background-color: var(--electric);
 }
 
 .poison-type, .family-blood .t-poison {
-  background-color: #773795;
+  background-color: var(--poison);
 }
 
 .ghost-type, .family-blood .t-ghost {
-  background-color: #323f67;
+  background-color: var(--ghost);
 }
 
 .dark-type, .family-blood .t-dark {
-  background-color: #28252d;
+  background-color: var(--dark);
 }
 
 .water-type, .family-blood .t-water {
-  background-color: #245e99;
+  background-color: var(--water);
 }
 
 .psychic-type, .family-blood .t-psychic {
-  background-color: #c34145;
+  background-color: var(--psychic);
 }
 
 .ice-type, .family-blood .t-ice {
-  background-color: #39a292;
+  background-color: var(--ice);
 }
 
 .steel-type, .family-blood .t-Steel {
-  background-color: #35545f;
+  background-color: var(--steel);
 }
 
 .fire-type, .family-blood .t-fire {
-  background-color: #eb6200;
+  background-color: var(--fire);
 }
 
 .fighting-type, .family-blood .t-fighting {
-  background-color: #86233f;
+  background-color: var(--fighting);
 }
 
 .rock-type, .family-blood .t-rock {
-  background-color: #9e884c;
+  background-color: var(--rock);
 }
 
 .ground-type, .family-blood .t-ground {
-  background-color: #8a4d2e;
+  background-color: var(--ground);
 }
 
 .flying-type, .family-blood .t-flying {
-  background-color: #3156a5;
+  background-color: var(--flying);
 }
 
 .fairy-type, .family-blood .t-fairy {
-  background-color: #a937a2;
+  background-color: var(--fairy);
 }
 
 .dragon-type, .family-blood .t-dragon {
-  background-color: #053661;
+  background-color: var(--dragon);
 }
-
-//// Boards stats section at bottom of homepage
-//#board-stats-layout {
-//  display: flex;
-//  margin: 4px;
-//
-//  #users-online {
-//    display: flex;
-//    flex-direction: column;
-//    justify-content: space-between;
-//    width: 50%;
-//
-//    #stats-links-layout {
-//      display: flex;
-//      justify-content: space-evenly;
-//
-//      .stats-links {
-//        text-transform: lowercase;
-//        display: flex;
-//        justify-content: space-around;
-//        text-align: center;
-//        font-size: 24px;
-//
-//        li {
-//          @extend .section-bg;
-//          margin: 4px;
-//          padding: 5px 10px;
-//          //color: $light-blue;
-//        }
-//      }
-//    }
-//
-//    #online-today, #currently-online {
-//      flex-grow: 1;
-//      margin: 4px;
-//    }
-//
-//    .strategos {
-//      color: var(--strat);
-//    }
-//
-//    .thiarchos {
-//      color: var(--thia);
-//    }
-//
-//    .krisigos {
-//      color: var(--kris);
-//    }
-//
-//    .mnemntia {
-//      color: var(--mnem);
-//    }
-//
-//    .sophist {
-//      color: var(--soph);
-//    }
-//
-//    .validating, .inactive {
-//      color: var(--guest);
-//    }
-//
-//    .Admin {
-//      color: var(--admin)
-//    }
-//
-//    .Mod {
-//      color: var(--mod);
-//    }
-//  }
-//
-//  // Newest member's hover image, name, and links
-//  #new-member {
-//    background-size: cover;
-//    width: 317px;
-//    margin: 5px;
-//    display: flex;
-//    flex-direction: column;
-//    justify-content: space-between;
-//    align-items: flex-end;
-//
-//    #buttons-group {
-//      display: flex;
-//      flex-direction: column;
-//
-//      .new-member-buttons {
-//        background-color: var(--palette4);
-//        padding: 7px;
-//        margin: 5px;
-//        font-size: 25px;
-//        text-align: center;
-//        width: 30px;
-//        color: var(--text-color);
-//      }
-//    }
-//
-//    #new-member-text {
-//      font-family: Rasputin, serif;
-//      background-color: var(--palette4);
-//      font-size: 25px;
-//      padding: 8px 16px;
-//      width: 280px;
-//
-//      a {
-//        color: var(--palette3);
-//      }
-//    }
-//  }
-//
-//  // Latest replies
-//  #active-topics {
-//    display: flex;
-//    flex-direction: column;
-//    flex-grow: 1;
-//    width: 25%;
-//    height: 500px;
-//    overflow: auto;
-//    scrollbar-color: var(--palette3) transparent;
-//  }
-//
-//  #active-topics-title {
-//    font-family: Rasputin, serif;
-//    font-size: 32px;
-//    font-weight: bold;
-//    margin: 8px;
-//    text-align: center;
-//    color: var(--nav-text);
-//  }
-//
-//  .topics-list {
-//    margin: 4px;
-//    padding: 8px;
-//
-//    .topic-title {
-//      font-family: Rasputin, serif;
-//      font-size: 24px;
-//    }
-//  }
-//}
-
-//#recent-topics {
-//  display: none;
-//}
-
-//// Character group counter
-//@mixin roster($color) {
-//  font-family: Rasputin, serif;
-//  text-transform: uppercase;
-//  text-align: center;
-//  font-size: 24px;
-//  background-color: $color;
-//  padding: 8px;
-//  margin: 3px;
-//  flex-grow: 1;
-//  width: 20%;
-//}
-//
-//#bottom-roster, #bottom-roster-mobile {
-//  display: flex;
-//  justify-content: space-evenly;
-//
-//  .strat {
-//    @include roster(var(--strat));
-//  }
-//
-//  .thia {
-//    @include roster(var(--thia));
-//  }
-//
-//  .kris {
-//    @include roster(var(--kris));
-//  }
-//
-//  .mnem {
-//    @include roster(var(--mnem));
-//  }
-//
-//  .soph {
-//    @include roster(var(--soph));
-//  }
-//}
-
-//#bottom-roster-mobile {
-//  display: none;
-//  order: 5;
-//}
-
-//#board-stats-mobile {
-//  background-color: var(--palette3);
-//  display: none;
-//  height: 150px;
-//  justify-content: flex-end;
-//  order: 4;
-//
-//  #member-image-mobile {
-//    img {
-//      width: 150px;
-//      margin-right: 32px;
-//    }
-//  }
-//
-//  #welcome-member-mobile {
-//    align-self: center;
-//    flex-grow: 1;
-//    font-family: Rasputin, serif;
-//    font-size: 24px;
-//  }
-//
-//  #new-mem-links-mobile {
-//    align-self: center;
-//    flex-grow: 1;
-//    font-size: 24px;
-//  }
-//
-//  #stats-links-mobile {
-//    align-self: center;
-//    display: flex;
-//    flex-direction: column;
-//    gap: 8px;
-//
-//    .slm-buttons {
-//      background: var(--palette2);
-//      width: 35px;
-//      font-size: 25px;
-//      text-align: center;
-//      padding: 20px;
-//    }
-//  }
-//}
-
-//.char-claims-list {
-//  display: grid;
-//  grid-template:
-//    repeat(auto-fill, 45px)
-//    / 1fr 1fr 1fr;
-//  gap: 16px;
-//  max-height: 500px;
-//  overflow: auto;
-//}
-
-//.claims-header {
-//  font-family: Rasputin, serif;
-//  font-size: 24px;
-//  font-weight: bold;
-//  padding: 8px 16px;;
-//  background-color: var(--palette3);
-//  text-align: center;
-//  align-content: center;
-//}
-
-//.claim-entry {
-//  padding: 0 16px;
-//
-//  a.claim-strat {
-//    color: var(--strat);
-//  }
-//
-//  a.claim-thia {
-//    color: var(--thia);
-//  }
-//
-//  a.claim-kris {
-//    color: var(--kris);
-//  }
-//
-//  a.claim-mnemn {
-//    color: var(--mnem);
-//  }
-//
-//  a.claim-soph {
-//    color: var(--soph);
-//  }
-//}
-
-//.mini-prof-bottom {
-//  display: flex;
-//  justify-content: space-evenly;
-//  gap: 16px;
-//  background-color: var(--palette2);
-//  padding: 16px;
-//
-//  .mpb-player-btns {
-//    display: flex;
-//    flex-direction: column;
-//    gap: 16px;
-//    font-family: Rasputin, serif;
-//
-//    .mp-played-by {
-//      font-size: 32px;
-//
-//      b {
-//        color: var(--thia);
-//      }
-//    }
-//
-//    .mp-links {
-//      display: flex;
-//      justify-content: space-evenly;
-//      gap: 8px;
-//
-//      .mp-link-btns {
-//        color: var(--thia);
-//        border: solid 2px;
-//        padding: 8px;
-//      }
-//    }
-//  }
-//}
 
 .postlinksbar {
   display: none;
@@ -1092,6 +728,22 @@ nav {
   }
 }
 
+/* PM styling */
+.msg-normal {
+  table {
+    background-color: var(--palette2);
+  }
+
+  td {
+    padding: 4px 8px;
+  }
+
+  img {
+    width: 150px;
+    height: 150px
+  }
+}
+
 /**********************************
  * Screen & Mobile Responsiveness *
  **********************************/
@@ -1112,7 +764,7 @@ nav {
 
 @media screen and (max-width: 960px) {
   .banner {
-    background: no-repeat 100% 80%/450px url(https://files.jcink.net/uploads2/astonish/skin_diascia/spring.png), radial-gradient(circle 25rem at 70% 90%, #F25C68, transparent);
+    background: no-repeat 100% 80%/400px var(--banner-img), radial-gradient(circle 25rem at 70% 90%, var(--banner-gradient), transparent);
 
     #banner-title {
       right: 24%;
@@ -1178,7 +830,6 @@ nav {
       width: 100%;
       display: flex;
       flex-wrap: wrap;
-      //justify-content: space-between;
       gap: 16px;
 
       ul {
@@ -1261,18 +912,18 @@ nav {
   .mobile-banner {
     display: flex;
     flex-direction: column;
-    text-shadow: black 2px 2px 5px;
+    text-shadow: var(--palette3) 2px 2px 3px;
     background-color: var(--palette2);
 
     .mobile-title {
-      background: colors.$secondary url(https://files.jcink.net/uploads2/astonish/skin_diascia/spring.png) no-repeat 105% 75%/130px;
+      background: var(--secondary) var(--banner-img) no-repeat 105% 70%/125px;
       font-family: Jemina, serif;
-      font-size: 56px;
+      font-size: 64px;
       font-weight: bold;
       color: white;
       padding: 0 16px;
-      text-shadow: colors.$secondary-darker 2px 2px 5px;
       border-radius: 0 0 10px 10px;
+      text-shadow: none;
     }
 
     .mobile-quick-links {
@@ -1285,7 +936,7 @@ nav {
     }
 
     .mobile-tagline {
-      color: colors.$secondary;
+      color: var(--secondary);
       font-family: Rasputin, serif;
       font-size: 20px;
       font-style: italic;
@@ -1308,7 +959,7 @@ nav {
 
     .welcome {
       border-right: none;
-      border-bottom: colors.$black-25 solid 2px;
+      border-bottom: var(--nav-text) solid 2px;
       padding-bottom: 24px;
     }
 
@@ -1528,7 +1179,6 @@ nav {
     }
 
     form {
-      //width: 250px;
       width: auto;
     }
 
@@ -1548,13 +1198,8 @@ nav {
       }
 
       .dlight {
-        //display: flex;
         flex-wrap: wrap;
-        //justify-content: space-between;
-        //align-items: center;
         gap: 24px;
-        //margin-bottom: 16px;
-        //background-color: $dark-blue;
         padding: 8px;
 
         td {
@@ -1685,3 +1330,4 @@ nav {
     display: none;
   }
 }
+
